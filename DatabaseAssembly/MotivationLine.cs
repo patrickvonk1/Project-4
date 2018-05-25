@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project4App
+namespace DatabaseAssembly
 {
     public class MotivationLine
     {

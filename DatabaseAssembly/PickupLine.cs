@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project4App
+namespace DatabaseAssembly
 {
-    public class JokeLine
+    public class PickupLine
     {
         //ID For Database
         [PrimaryKey, AutoIncrement]

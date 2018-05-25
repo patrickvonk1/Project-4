@@ -1,4 +1,7 @@
+using DatabaseAssembly;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,6 +10,21 @@ namespace Project4App
 {
 	public partial class App : Application
 	{
+        public static List<string> pickupLines = new List<string>();
+
+        public async void PickupLinesFromFile(List<string> pickupLines)
+        {
+            foreach (var line in pickupLines)
+            {
+                string[] splittedLine = line.Split('*');
+                string text = splittedLine[0];
+                string type = splittedLine[1];
+                PickupLine newPickupLine = new PickupLine();
+                newPickupLine.Text = text;
+                await Database.SavePickupLineAsync(newPickupLine);
+            }
+        }
+
         private static Database database;
         public static Database Database
         {
@@ -23,7 +41,8 @@ namespace Project4App
 
         public App ()
 		{
-			InitializeComponent();
+
+            InitializeComponent();
             MainTabbedPage mainTabbedPage = new MainTabbedPage();
 
             //PickupLine page
@@ -38,17 +57,23 @@ namespace Project4App
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());
             jokeLineNavPage.Title = "Jokes";
 
+            //// Favourite Page
+            //NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
+            //FavouriteNavPage.Title = "Favourites";
+
             mainTabbedPage.Children.Add(pickupLineNavPage);
             mainTabbedPage.Children.Add(motivationLineNavPage);
             mainTabbedPage.Children.Add(jokeLineNavPage);
+            //mainTabbedPage.Children.Add(FavouriteNavPage);
 
             MainPage = mainTabbedPage;
 		}
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            PickupLinesFromFile(pickupLines);
+            // Handle when your app starts
+        }
 
 		protected override void OnSleep ()
 		{
