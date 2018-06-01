@@ -231,19 +231,5 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
 
         #endregion
 
-        //public async Task<List<FavouriteLine>> GetAllFavourites()
-        //{
-        //    List<FavouriteLine> allfavouritedLines = new List<FavouriteLine>();
-
-        //    var favPickupLines = await database.Table<PickupLine>().Where(p => p.IsFavourited == true).ToListAsync();
-        //    var favMotivationLines = await database.Table<MotivationLine>().Where(m => m.IsFavourited == true).ToListAsync();
-        //    var favJokeLines = await database.Table<JokeLine>().Where(j => j.IsFavourited == true).ToListAsync();
-
-        //    favPickupLines.ForEach(p => allfavouritedLines.Add(new FavouriteLine() { Text = p.Text, FavouriteLineType = FavouriteLineType.PickupLine }));
-        //    favMotivationLines.ForEach(m => allfavouritedLines.Add(new FavouriteLine() { Text = m.Text, FavouriteLineType = FavouriteLineType.MotivationLine }));
-        //    favJokeLines.ForEach(j => allfavouritedLines.Add(new FavouriteLine() { Text = j.Text, FavouriteLineType = FavouriteLineType.JokeLine }));
-
-        //    return allfavouritedLines;
-        //}
     }
 }

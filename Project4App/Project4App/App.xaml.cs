@@ -63,14 +63,14 @@ namespace Project4App
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());
             jokeLineNavPage.Title = "Jokes";
 
-            //// Favourite Page
-            //NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
-            //FavouriteNavPage.Title = "Favourites";
+            // Favourite Page
+            NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
+            FavouriteNavPage.Title = "Favourites";
 
             mainTabbedPage.Children.Add(pickupLineNavPage);
             mainTabbedPage.Children.Add(motivationLineNavPage);
             mainTabbedPage.Children.Add(jokeLineNavPage);
-            //mainTabbedPage.Children.Add(FavouriteNavPage);
+            mainTabbedPage.Children.Add(FavouriteNavPage);
 
             MainPage = mainTabbedPage;
 		}
