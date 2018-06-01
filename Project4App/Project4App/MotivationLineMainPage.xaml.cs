@@ -17,7 +17,9 @@ namespace Project4App
         public MotivationLineMainPage ()
 		{
 			InitializeComponent ();
-
+            FileImageSource yeet = new FileImageSource();
+            yeet.File = @"C:\Users\Patrick Vonk\Source\Repos\Project4App\Project4App\Project4App\bin\Debug\3TurretCowboys.png";
+            BtnGetRandomMotivationLine.Image = yeet;
             ToolbarItem toolbarItem = new ToolbarItem() { Text = "+" };
 
             toolbarItem.Clicked += async (sender, e) =>

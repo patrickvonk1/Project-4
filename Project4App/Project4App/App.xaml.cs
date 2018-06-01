@@ -19,8 +19,14 @@ namespace Project4App
                 string[] splittedLine = line.Split('*');
                 string text = splittedLine[0];
                 string type = splittedLine[1];
+
+                ////Converting string to int
+                //string numberString = "1";
+                //int numberInt = int.Parse(numberString);//Gebruik parse (type wat het moet worden) (variableName) = (type wat het moet worden).parse(value)
+
                 PickupLine newPickupLine = new PickupLine();
                 newPickupLine.Text = text;
+
                 await Database.SavePickupLineAsync(newPickupLine);
             }
         }

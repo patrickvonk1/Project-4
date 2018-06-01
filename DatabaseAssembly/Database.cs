@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace DatabaseAssembly
+namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, Instellingen, Instellingen:User pagina veranderen(Profile Image, Name) user kunnen lines zelf maken en publishen en gerate worden door andere.|||| Alle pages nice layout geven.
 {
-    public class Database//TODO: Heel Favourite lines is verneukt omdat je alles naar de nieuwe assembly hebt gedaan, controleer ook alles ff
+    public class Database
     {
         readonly SQLiteAsyncConnection database;
 
@@ -161,7 +162,7 @@ namespace DatabaseAssembly
         #endregion
 
         #region JokeLine Methods
-
+        
         public async Task<List<JokeLine>> GetJokeLinesAsync()
         {
             return await database.Table<JokeLine>().ToListAsync();

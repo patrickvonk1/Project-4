@@ -1,4 +1,5 @@
-﻿using MvvmHelpers;
+﻿using DatabaseAssembly;
+using MvvmHelpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,7 +39,7 @@ namespace Project4App
     public class FavouriteLine
     {
         public string Text { get; set; }
-        public FavouriteLineType FavouriteLineType { get; set; } 
+        public FavouriteLineType FavouriteLineType { get; set; }
     }
     
     public enum FavouriteLineType
