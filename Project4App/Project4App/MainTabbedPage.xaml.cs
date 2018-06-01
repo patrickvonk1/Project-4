@@ -19,12 +19,10 @@ namespace Project4App
 
         private async void TabbedPage_CurrentPageChanged(object sender, EventArgs e)
         {
-            //ToDo: Perfect this, this wont work when the title is changed
-            //TODo: The way of getting favourite lines is not correct, perfect it
             if (CurrentPage.Title == "Favourites")
             {
                 FavouriteMainPage favouriteMainPage = (FavouriteMainPage)(((NavigationPage)CurrentPage).CurrentPage);
-                await favouriteMainPage.GetFavourites();
+                await favouriteMainPage.AddFavouriteLinesToListview();
             }
         }
     }

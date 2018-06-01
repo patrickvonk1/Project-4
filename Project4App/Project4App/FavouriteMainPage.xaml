@@ -3,13 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project4App.FavouriteMainPage">
 
-    <ListView x:Name="listviewFavourites" IsGroupingEnabled="True" GroupShortNameBinding="{Binding Key}" GroupDisplayBinding="{Binding Key}">
+    <ListView x:Name="FavouriteView">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Text}"></TextCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
 
 </ContentPage>
