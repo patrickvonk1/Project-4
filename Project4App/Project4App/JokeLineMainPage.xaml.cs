@@ -53,5 +53,39 @@ namespace Project4App
                 LblCurrentJoke.Text = "There are no jokes available in the database!";
             }
         }
+
+        private void EditButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentJokeLine == null)
+            {
+                return;
+            }
+
+            //Edit the pickupline (Maybe go to the page where you can create a pickupline and update it there)
+        }
+
+        private async void FavouriteButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentJokeLine == null || currentJokeLine.IsFavourited)
+            {
+                return;
+            }
+
+            currentJokeLine.IsFavourited = true;
+            await App.Database.SaveJokeLineAsync(currentJokeLine);
+        }
+
+        private async void RemoveButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentJokeLine == null)
+            {
+                return;
+            }
+
+            LblCurrentJoke.Text = "No joke yet!";
+
+            await App.Database.DeleteJokeLineAsync(currentJokeLine);
+            currentJokeLine = null;
+        }
     }
 }

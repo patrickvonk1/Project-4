@@ -52,5 +52,39 @@ namespace Project4App
                 LblCurrentMotivationLine.Text = "There are no motivationlines available in the database!";
             }
         }
+
+        private void EditButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentMotivationLine == null)
+            {
+                return;
+            }
+
+            //Edit the pickupline (Maybe go to the page where you can create a pickupline and update it there)
+        }
+
+        private async void FavouriteButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentMotivationLine == null || currentMotivationLine.IsFavourited)
+            {
+                return;
+            }
+
+            currentMotivationLine.IsFavourited = true;
+            await App.Database.SaveMotivationLineAsync(currentMotivationLine);
+        }
+
+        private async void RemoveButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentMotivationLine == null)
+            {
+                return;
+            }
+
+            LblCurrentMotivationLine.Text = "No motivation line yet!";
+
+            await App.Database.DeleteMotivationLineAsync(currentMotivationLine);
+            currentMotivationLine = null;
+        }
     }
 }
