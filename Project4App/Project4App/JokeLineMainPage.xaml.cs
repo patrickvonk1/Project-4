@@ -26,9 +26,20 @@ namespace Project4App
             };
 
             ToolbarItems.Add(toolbarItem);
+
+            var profileTapRecognizer = new TapGestureRecognizer
+            {
+                TappedCallback = async (v, o) => {
+                    await TappedImage();
+                },
+
+                NumberOfTapsRequired = 1
+            };
+
+            image.GestureRecognizers.Add(profileTapRecognizer);
         }
 
-        private async void BtnGetRandomJoke_Clicked(object sender, EventArgs e)
+        private async Task TappedImage()
         {
             JokeLine randomJokeLine = await App.Database.GetRandomJokeLineAsync();
 

@@ -17,9 +17,6 @@ namespace Project4App
         public MotivationLineMainPage ()
 		{
 			InitializeComponent ();
-            FileImageSource yeet = new FileImageSource();
-            yeet.File = @"C:\Users\Patrick Vonk\Source\Repos\Project4App\Project4App\Project4App\bin\Debug\3TurretCowboys.png";
-            BtnGetRandomMotivationLine.Image = yeet;
             ToolbarItem toolbarItem = new ToolbarItem() { Text = "+" };
 
             toolbarItem.Clicked += async (sender, e) =>
@@ -28,9 +25,20 @@ namespace Project4App
             };
 
             ToolbarItems.Add(toolbarItem);
+
+            var profileTapRecognizer = new TapGestureRecognizer
+            {
+                TappedCallback = async (v, o) => {
+                    await TappedImage();
+                },
+
+                NumberOfTapsRequired = 1
+            };
+
+            image.GestureRecognizers.Add(profileTapRecognizer);
         }
 
-        private async void BtnGetRandomMotivationLine_Clicked(object sender, EventArgs e)
+        private async Task TappedImage()
         {
             MotivationLine randomMotivationLine = await App.Database.GetRandomMotivationLineAsync();
 
