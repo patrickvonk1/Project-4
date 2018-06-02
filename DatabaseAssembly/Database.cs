@@ -79,6 +79,7 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
         public async Task<bool> DeletePickupLineAsync(PickupLine pickupLineToDelete)
         {
             int result = await database.DeleteAsync(pickupLineToDelete);
+
             if (result == 0)
             {
                 return true;

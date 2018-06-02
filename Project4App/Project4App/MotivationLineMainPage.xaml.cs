@@ -53,14 +53,16 @@ namespace Project4App
             }
         }
 
-        private void EditButton_Clicked(object sender, EventArgs e)
+        private async void EditButton_Clicked(object sender, EventArgs e)
         {
             if (currentMotivationLine == null)
             {
                 return;
             }
 
-            //Edit the pickupline (Maybe go to the page where you can create a pickupline and update it there)
+            await Navigation.PushAsync(new MotivationLineCreatorPage() { BindingContext = currentMotivationLine });
+            LblCurrentMotivationLine.Text = "No motivation line yet!";
+            currentMotivationLine = null;
         }
 
         private async void FavouriteButton_Clicked(object sender, EventArgs e)

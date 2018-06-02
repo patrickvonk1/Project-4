@@ -54,14 +54,16 @@ namespace Project4App
             }
         }
 
-        private void EditButton_Clicked(object sender, EventArgs e)
+        private async void EditButton_Clicked(object sender, EventArgs e)
         {
             if (currentJokeLine == null)
             {
                 return;
             }
 
-            //Edit the pickupline (Maybe go to the page where you can create a pickupline and update it there)
+            await Navigation.PushAsync(new JokeLineCreatorPage() { BindingContext = currentJokeLine });
+            LblCurrentJoke.Text = "No joke yet!";
+            currentJokeLine = null;
         }
 
         private async void FavouriteButton_Clicked(object sender, EventArgs e)
