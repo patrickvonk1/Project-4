@@ -54,5 +54,39 @@ namespace Project4App
                 LblCurrentPickupLine.Text = "There are no pickuplines available in the database!";
             }
         }
+        
+        private void EditButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentPickupLine == null)
+            {
+                return;
+            }   
+
+            //Edit the pickupline (Maybe go to the page where you can create a pickupline and update it there)
+        }
+        
+        private async void FavouriteButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentPickupLine == null || currentPickupLine.IsFavourited)
+            {
+                return;
+            }
+
+            currentPickupLine.IsFavourited = true;
+            await App.Database.SavePickupLineAsync(currentPickupLine);
+        }
+
+        private async void RemoveButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentPickupLine == null)
+            {
+                return;
+            }
+
+            LblCurrentPickupLine.Text = "No pickup line yet!";
+
+            await App.Database.DeletePickupLineAsync(currentPickupLine);
+            currentPickupLine = null;
+        }
     }
 }

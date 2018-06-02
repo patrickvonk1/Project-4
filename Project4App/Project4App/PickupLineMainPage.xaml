@@ -20,12 +20,11 @@
 
         </BoxView>
 
-
         <Image x:Name="image" Aspect="AspectFill" Source="jokebuttonimage.jpg" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"></Image>
         <Label FontSize="Medium"  Text="No pickup line yet!" x:Name="LblCurrentPickupLine" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" BackgroundColor="LightGreen" VerticalTextAlignment="Center" TextColor="White"></Label>
 
-        <Button Text="Edit" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
-        <Button Text="Favourite" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
-        <Button Text="Remove" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
+        <Button Clicked="EditButton_Clicked" Text="Edit" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
+        <Button Clicked="FavouriteButton_Clicked" Text="Favourite" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
+        <Button Clicked="RemoveButton_Clicked" Text="Remove" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
     </Grid>
 </ContentPage>
