@@ -42,6 +42,7 @@ namespace Project4App
 
         private async Task TappedImage()
         {
+            PickupLine filteredPickupLine = await App.Database.GetPickupLineByFilter(this.FindByName<Picker>("PickUpLineTypePicker").SelectedItem as string);
             PickupLine randomPickupLine = await App.Database.GetRandomPickupLineAsync();
 
             if (randomPickupLine != null)
@@ -90,5 +91,7 @@ namespace Project4App
             await App.Database.DeletePickupLineAsync(currentPickupLine);
             currentPickupLine = null;
         }
+
+          
     }
 }
