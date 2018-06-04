@@ -27,6 +27,16 @@ namespace Project4App
                 PickupLine newPickupLine = new PickupLine();
                 newPickupLine.Text = text;
 
+                PickupLineType pickupLineType;
+                if (Enum.TryParse(type, out pickupLineType))
+                {
+                    newPickupLine.PickupLineType = pickupLineType;
+                }
+                else
+                {
+                    throw new Exception("A pickupLineType in the textfile is not correct. maybe somewhere its club instead of Club");
+                }
+
                 await Database.SavePickupLineAsync(newPickupLine);
             }
         }
@@ -47,7 +57,6 @@ namespace Project4App
 
         public App ()
 		{
-
             InitializeComponent();
             MainTabbedPage mainTabbedPage = new MainTabbedPage();
 

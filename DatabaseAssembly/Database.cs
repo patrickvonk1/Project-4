@@ -43,6 +43,27 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
             return null;
         }
 
+        public async Task<PickupLine> GetPickupLineByFilter(string pickupLineType)
+        {
+            List<PickupLine> allPickupLine = await database.Table<PickupLine>().ToListAsync();
+            List<PickupLine> filteredPickupLines = new List<PickupLine>();
+
+            foreach (var pickupLine in allPickupLine)
+            {
+                if (pickupLine.PickupLineType == (PickupLineType)Enum.Parse(typeof(PickupLineType), pickupLineType))
+                {
+                    filteredPickupLines.Add(pickupLine);
+                }
+            }
+
+            if (filteredPickupLines.Count == 0)
+            {
+                return null;
+            }
+
+            return filteredPickupLines[random.Next(0, filteredPickupLines.Count)];
+        }
+
         public async Task<PickupLine> GetPickupLineAsync(int id)
         {
             return await database.Table<PickupLine>().Where(i => i.ID == id).FirstOrDefaultAsync();
@@ -114,7 +135,22 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
             //return null;
         }
 
-        public async Task<MotivationLine> GetMotivationLineAsync(int id)
+        public async Task<MotivationLine> GetMotivationLineByFilter(string motivationLineType)
+        {
+            List<MotivationLine> allMotivationLine = await database.Table<MotivationLine>().ToListAsync();
+            List<MotivationLine> filteredMotivationLines = new List<MotivationLine>();
+
+            foreach (var motivationLine in allMotivationLine)
+            {
+                if (motivationLine.MotivationLineType == (MotivationLineType)Enum.Parse(typeof(MotivationLineType), motivationLineType))
+                {
+                    filteredMotivationLines.Add(motivationLine);
+                }
+            }
+            return filteredMotivationLines[random.Next(0, filteredMotivationLines.Count)];
+        }
+
+            public async Task<MotivationLine> GetMotivationLineAsync(int id)
         {
             return await database.Table<MotivationLine>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
@@ -182,6 +218,21 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
 
             ////There are no pickupLines in the database!
             //return null;
+        }
+
+        public async Task<JokeLine> GetJokeLineByFilter(string jokeLineType)
+        {
+            List<JokeLine> allJokeLine = await database.Table<JokeLine>().ToListAsync();
+            List<JokeLine> filteredJokeLines = new List<JokeLine>();
+
+            foreach (var jokeLine in allJokeLine)
+            {
+                if (jokeLine.JokeLineType == (JokeLineType)Enum.Parse(typeof(JokeLineType), jokeLineType))
+                {
+                    filteredJokeLines.Add(jokeLine);
+                }
+            }
+            return filteredJokeLines[random.Next(0, filteredJokeLines.Count)];
         }
 
         public async Task<JokeLine> GetJokeLineAsync(int id)

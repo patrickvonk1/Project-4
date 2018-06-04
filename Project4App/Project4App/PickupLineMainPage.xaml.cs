@@ -15,9 +15,9 @@ namespace Project4App
 	{
         PickupLine currentPickupLine;
 
-		public PickupLineMainPage ()
+        public PickupLineMainPage ()
 		{
-			InitializeComponent ();
+            InitializeComponent ();
 
             ToolbarItem toolbarItem = new ToolbarItem() { Text = "+" };
 
@@ -42,12 +42,20 @@ namespace Project4App
 
         private async Task TappedImage()
         {
-            PickupLine randomPickupLine = await App.Database.GetRandomPickupLineAsync();
+            Picker picker = this.FindByName<Picker>("PickUpLineTypePicker");
+            string pickupLineType = "";
 
-            if (randomPickupLine != null)
+            if (picker != null && picker.SelectedItem != null)
             {
-                LblCurrentPickupLine.Text = "Random PickupLine: " + randomPickupLine.Text;
-                currentPickupLine = randomPickupLine;
+                pickupLineType = (string)picker.SelectedItem;
+            }
+
+            PickupLine filteredPickupLine = await App.Database.GetPickupLineByFilter(pickupLineType);
+
+            if (filteredPickupLine != null)
+            {
+                LblCurrentPickupLine.Text = "Random PickupLine: " + filteredPickupLine.Text;
+                currentPickupLine = filteredPickupLine;
             }
             else
             {
@@ -90,5 +98,7 @@ namespace Project4App
             await App.Database.DeletePickupLineAsync(currentPickupLine);
             currentPickupLine = null;
         }
+
+          
     }
 }

@@ -34,13 +34,15 @@ namespace Project4App
 
                 NumberOfTapsRequired = 1
             };
-
+            
             image.GestureRecognizers.Add(profileTapRecognizer);
         }
 
         private async Task TappedImage()
         {
+            MotivationLine filteredMotivationLine = await App.Database.GetMotivationLineByFilter(this.FindByName<Picker>("MotivationLineTypePicker").SelectedItem as string);
             MotivationLine randomMotivationLine = await App.Database.GetRandomMotivationLineAsync();
+
 
             if (randomMotivationLine != null)
             {
