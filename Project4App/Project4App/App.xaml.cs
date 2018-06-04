@@ -19,8 +19,14 @@ namespace Project4App
                 string[] splittedLine = line.Split('*');
                 string text = splittedLine[0];
                 string type = splittedLine[1];
+
+                ////Converting string to int
+                //string numberString = "1";
+                //int numberInt = int.Parse(numberString);//Gebruik parse (type wat het moet worden) (variableName) = (type wat het moet worden).parse(value)
+
                 PickupLine newPickupLine = new PickupLine();
                 newPickupLine.Text = text;
+
                 await Database.SavePickupLineAsync(newPickupLine);
             }
         }
@@ -57,14 +63,14 @@ namespace Project4App
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());
             jokeLineNavPage.Title = "Jokes";
 
-            //// Favourite Page
-            //NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
-            //FavouriteNavPage.Title = "Favourites";
+            // Favourite Page
+            NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
+            FavouriteNavPage.Title = "Favourites";
 
             mainTabbedPage.Children.Add(pickupLineNavPage);
             mainTabbedPage.Children.Add(motivationLineNavPage);
             mainTabbedPage.Children.Add(jokeLineNavPage);
-            //mainTabbedPage.Children.Add(FavouriteNavPage);
+            mainTabbedPage.Children.Add(FavouriteNavPage);
 
             MainPage = mainTabbedPage;
 		}

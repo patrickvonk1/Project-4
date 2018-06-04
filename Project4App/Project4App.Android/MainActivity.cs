@@ -13,13 +13,11 @@ using System.Collections.Generic;
 
 namespace Project4App.Droid
 {
-    [Activity(Label = "Project4App", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Project4App", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle bundle)
+        private void ReadPickupLineFile(List<string> pickupLineList)
         {
-            List<string> pickupLineList = new List<string>();
-
             // Read the contents of our asset
             string content;
             AssetManager assets = this.Assets;
@@ -32,6 +30,12 @@ namespace Project4App.Droid
                     pickupLineList.Add(line);
                 }
             }
+        }
+
+        protected override void OnCreate(Bundle bundle)
+        {
+            List<string> pickupLineList = new List<string>();
+            ReadPickupLineFile(pickupLineList);
 
             App.pickupLines = new List<string>(pickupLineList);
 

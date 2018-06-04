@@ -27,9 +27,20 @@ namespace Project4App
             };
 
             ToolbarItems.Add(toolbarItem);
+
+            var profileTapRecognizer = new TapGestureRecognizer
+            {
+                TappedCallback = async (v, o) => {
+                    await TappedImage();
+                },
+
+                NumberOfTapsRequired = 1
+            };
+
+            image.GestureRecognizers.Add(profileTapRecognizer);
         }
 
-        private async void BtnGetRandomPickupLine_Clicked(object sender, EventArgs e)
+        private async Task TappedImage()
         {
             PickupLine randomPickupLine = await App.Database.GetRandomPickupLineAsync();
 
@@ -42,6 +53,42 @@ namespace Project4App
             {
                 LblCurrentPickupLine.Text = "There are no pickuplines available in the database!";
             }
+        }
+        
+        private async void EditButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentPickupLine == null)
+            {
+                return;
+            }
+
+            await Navigation.PushAsync(new PickupLineCreatorPage() { BindingContext = currentPickupLine });
+            LblCurrentPickupLine.Text = "No pickup line yet!";
+            currentPickupLine = null;
+        }
+        
+        private async void FavouriteButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentPickupLine == null || currentPickupLine.IsFavourited)
+            {
+                return;
+            }
+
+            currentPickupLine.IsFavourited = true;
+            await App.Database.SavePickupLineAsync(currentPickupLine);
+        }
+
+        private async void RemoveButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentPickupLine == null)
+            {
+                return;
+            }
+
+            LblCurrentPickupLine.Text = "No pickup line yet!";
+
+            await App.Database.DeletePickupLineAsync(currentPickupLine);
+            currentPickupLine = null;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Project4App
 		public MotivationLineCreatorPage ()
 		{
 			InitializeComponent ();
-		}
+        }
 
         private async void Save_Clicked(object sender, EventArgs e)
         {

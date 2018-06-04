@@ -17,7 +17,6 @@ namespace Project4App
         public MotivationLineMainPage ()
 		{
 			InitializeComponent ();
-
             ToolbarItem toolbarItem = new ToolbarItem() { Text = "+" };
 
             toolbarItem.Clicked += async (sender, e) =>
@@ -26,9 +25,20 @@ namespace Project4App
             };
 
             ToolbarItems.Add(toolbarItem);
+
+            var profileTapRecognizer = new TapGestureRecognizer
+            {
+                TappedCallback = async (v, o) => {
+                    await TappedImage();
+                },
+
+                NumberOfTapsRequired = 1
+            };
+
+            image.GestureRecognizers.Add(profileTapRecognizer);
         }
 
-        private async void BtnGetRandomMotivationLine_Clicked(object sender, EventArgs e)
+        private async Task TappedImage()
         {
             MotivationLine randomMotivationLine = await App.Database.GetRandomMotivationLineAsync();
 
@@ -41,6 +51,42 @@ namespace Project4App
             {
                 LblCurrentMotivationLine.Text = "There are no motivationlines available in the database!";
             }
+        }
+
+        private async void EditButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentMotivationLine == null)
+            {
+                return;
+            }
+
+            await Navigation.PushAsync(new MotivationLineCreatorPage() { BindingContext = currentMotivationLine });
+            LblCurrentMotivationLine.Text = "No motivation line yet!";
+            currentMotivationLine = null;
+        }
+
+        private async void FavouriteButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentMotivationLine == null || currentMotivationLine.IsFavourited)
+            {
+                return;
+            }
+
+            currentMotivationLine.IsFavourited = true;
+            await App.Database.SaveMotivationLineAsync(currentMotivationLine);
+        }
+
+        private async void RemoveButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentMotivationLine == null)
+            {
+                return;
+            }
+
+            LblCurrentMotivationLine.Text = "No motivation line yet!";
+
+            await App.Database.DeleteMotivationLineAsync(currentMotivationLine);
+            currentMotivationLine = null;
         }
     }
 }

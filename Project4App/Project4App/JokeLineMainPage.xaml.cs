@@ -26,9 +26,20 @@ namespace Project4App
             };
 
             ToolbarItems.Add(toolbarItem);
+
+            var profileTapRecognizer = new TapGestureRecognizer
+            {
+                TappedCallback = async (v, o) => {
+                    await TappedImage();
+                },
+
+                NumberOfTapsRequired = 1
+            };
+
+            image.GestureRecognizers.Add(profileTapRecognizer);
         }
 
-        private async void BtnGetRandomJoke_Clicked(object sender, EventArgs e)
+        private async Task TappedImage()
         {
             JokeLine randomJokeLine = await App.Database.GetRandomJokeLineAsync();
 
@@ -41,6 +52,42 @@ namespace Project4App
             {
                 LblCurrentJoke.Text = "There are no jokes available in the database!";
             }
+        }
+
+        private async void EditButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentJokeLine == null)
+            {
+                return;
+            }
+
+            await Navigation.PushAsync(new JokeLineCreatorPage() { BindingContext = currentJokeLine });
+            LblCurrentJoke.Text = "No joke yet!";
+            currentJokeLine = null;
+        }
+
+        private async void FavouriteButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentJokeLine == null || currentJokeLine.IsFavourited)
+            {
+                return;
+            }
+
+            currentJokeLine.IsFavourited = true;
+            await App.Database.SaveJokeLineAsync(currentJokeLine);
+        }
+
+        private async void RemoveButton_Clicked(object sender, EventArgs e)
+        {
+            if (currentJokeLine == null)
+            {
+                return;
+            }
+
+            LblCurrentJoke.Text = "No joke yet!";
+
+            await App.Database.DeleteJokeLineAsync(currentJokeLine);
+            currentJokeLine = null;
         }
     }
 }

@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace DatabaseAssembly
+namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, Instellingen, Instellingen:User pagina veranderen(Profile Image, Name) user kunnen lines zelf maken en publishen en gerate worden door andere.|||| Alle pages nice layout geven.
 {
-    public class Database//TODO: Heel Favourite lines is verneukt omdat je alles naar de nieuwe assembly hebt gedaan, controleer ook alles ff
+    public class Database
     {
         readonly SQLiteAsyncConnection database;
 
@@ -78,6 +79,7 @@ namespace DatabaseAssembly
         public async Task<bool> DeletePickupLineAsync(PickupLine pickupLineToDelete)
         {
             int result = await database.DeleteAsync(pickupLineToDelete);
+
             if (result == 0)
             {
                 return true;
@@ -161,7 +163,7 @@ namespace DatabaseAssembly
         #endregion
 
         #region JokeLine Methods
-
+        
         public async Task<List<JokeLine>> GetJokeLinesAsync()
         {
             return await database.Table<JokeLine>().ToListAsync();
@@ -230,19 +232,5 @@ namespace DatabaseAssembly
 
         #endregion
 
-        //public async Task<List<FavouriteLine>> GetAllFavourites()
-        //{
-        //    List<FavouriteLine> allfavouritedLines = new List<FavouriteLine>();
-
-        //    var favPickupLines = await database.Table<PickupLine>().Where(p => p.IsFavourited == true).ToListAsync();
-        //    var favMotivationLines = await database.Table<MotivationLine>().Where(m => m.IsFavourited == true).ToListAsync();
-        //    var favJokeLines = await database.Table<JokeLine>().Where(j => j.IsFavourited == true).ToListAsync();
-
-        //    favPickupLines.ForEach(p => allfavouritedLines.Add(new FavouriteLine() { Text = p.Text, FavouriteLineType = FavouriteLineType.PickupLine }));
-        //    favMotivationLines.ForEach(m => allfavouritedLines.Add(new FavouriteLine() { Text = m.Text, FavouriteLineType = FavouriteLineType.MotivationLine }));
-        //    favJokeLines.ForEach(j => allfavouritedLines.Add(new FavouriteLine() { Text = j.Text, FavouriteLineType = FavouriteLineType.JokeLine }));
-
-        //    return allfavouritedLines;
-        //}
     }
 }
