@@ -14,5 +14,14 @@ namespace DatabaseAssembly
         public string Text { get; set; }
 
         public bool IsFavourited { get; set; }
+
+        public JokeLineType JokeLineType { get; set; }
+    }
+
+    public enum JokeLineType
+    {
+        Dad,
+        Pun,
+        Corny
     }
 }

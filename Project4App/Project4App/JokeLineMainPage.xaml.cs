@@ -41,6 +41,7 @@ namespace Project4App
 
         private async Task TappedImage()
         {
+            JokeLine filteredJokeLine = await App.Database.GetJokeLineByFilter(this.FindByName<Picker>("JokeLineTypePicker").SelectedItem as string);
             JokeLine randomJokeLine = await App.Database.GetRandomJokeLineAsync();
 
             if (randomJokeLine != null)
