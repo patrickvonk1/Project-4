@@ -15,9 +15,9 @@ namespace Project4App
 	{
         PickupLine currentPickupLine;
 
-		public PickupLineMainPage ()
+        public PickupLineMainPage ()
 		{
-			InitializeComponent ();
+            InitializeComponent ();
 
             ToolbarItem toolbarItem = new ToolbarItem() { Text = "+" };
 

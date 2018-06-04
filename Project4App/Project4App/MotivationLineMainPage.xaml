@@ -21,9 +21,16 @@
         </BoxView>
 
 
+        
         <Image x:Name="image" Aspect="AspectFill" Source="jokebuttonimage.jpg" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"></Image>
+        <Picker Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+            <Picker.Items>
+                <x:String>"Yeet"</x:String>
+                <x:String>"SKeet"</x:String>
+            </Picker.Items>
+        </Picker>
+        
         <Label FontSize="Medium" Text="No motivation line yet!" x:Name="LblCurrentMotivationLine" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" BackgroundColor="LightGreen" VerticalTextAlignment="Center" TextColor="White"></Label>
-
         <Button Clicked="EditButton_Clicked" Text="Edit" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
         <Button Clicked="FavouriteButton_Clicked" Text="Favourite" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
         <Button Clicked="RemoveButton_Clicked" Text="Remove" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>

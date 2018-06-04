@@ -34,7 +34,7 @@ namespace Project4App
 
                 NumberOfTapsRequired = 1
             };
-
+            
             image.GestureRecognizers.Add(profileTapRecognizer);
         }
 
