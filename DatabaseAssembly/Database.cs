@@ -56,6 +56,11 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
                 }
             }
 
+            if (filteredPickupLines.Count == 0)
+            {
+                return null;
+            }
+
             return filteredPickupLines[random.Next(0, filteredPickupLines.Count)];
         }
 
@@ -215,7 +220,7 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
             //return null;
         }
 
-        public async Task<MJokeLine> GetJokeLineByFilter(string jokeLineType)
+        public async Task<JokeLine> GetJokeLineByFilter(string jokeLineType)
         {
             List<JokeLine> allJokeLine = await database.Table<JokeLine>().ToListAsync();
             List<JokeLine> filteredJokeLines = new List<JokeLine>();
