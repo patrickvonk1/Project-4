@@ -18,18 +18,18 @@ namespace Project4App.Droid
     {
         private void ReadPickupLineFile(List<string> pickupLineList)
         {
-            // Read the contents of our asset
-            string content;
-            AssetManager assets = this.Assets;
+            //// Read the contents of our asset
+            //string content;
+            //AssetManager assets = this.Assets;
 
-            using (StreamReader reader = new StreamReader(assets.Open("PickupLineFile.txt")))
-            {
-                while (reader.Peek() > 0)
-                {
-                    string line = reader.ReadLine();
-                    pickupLineList.Add(line);
-                }
-            }
+            //using (StreamReader reader = new StreamReader(assets.Open("PickupLineFile.txt")))
+            //{
+            //    while (reader.Peek() > 0)
+            //    {
+            //        string line = reader.ReadLine();
+            //        pickupLineList.Add(line);
+            //    }
+            //}
         }
 
         protected override void OnCreate(Bundle bundle)

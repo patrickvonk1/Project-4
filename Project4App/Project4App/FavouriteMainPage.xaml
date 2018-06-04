@@ -2,8 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project4App.FavouriteMainPage">
-
-    <ListView x:Name="FavouriteView">
+    
+    <ListView x:Name="FavouriteView" GroupDisplayBinding="{Binding Key}" ItemsSource="{Binding Items}" IsGroupingEnabled="True">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell Height="25">
+                    <StackLayout VerticalOptions="FillAndExpand"
+                                 Padding="5"
+                                 BackgroundColor="#1976D2">
+                        <Label Text="{Binding Key}" TextColor="White" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold"></Label>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            
+        </ListView.GroupHeaderTemplate>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Text}"></TextCell>

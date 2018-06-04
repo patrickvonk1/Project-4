@@ -53,11 +53,11 @@ namespace Project4App
 
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
-            pickupLineNavPage.Title = "PickupLines";
+            pickupLineNavPage.Title = "Pick up Lines";
 
             //MotivationLine Page
             NavigationPage motivationLineNavPage = new NavigationPage(new MotivationLineMainPage());
-            motivationLineNavPage.Title = "Motivation";
+            motivationLineNavPage.Title = "Motivations";
 
             // JokeLine Page
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());

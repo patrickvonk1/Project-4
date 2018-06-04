@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project4App.MainTabbedPage"
              xmlns:local="clr-namespace:Project4App"
-            CurrentPageChanged="TabbedPage_CurrentPageChanged">
+            CurrentPageChanged="TabbedPage_CurrentPageChanged"
+            xmlns:tabTextAppearance="@style/MyTabTextStyle" >
     
     <!--All tab pages-->
     <!--<local:PickupLineMainPage/>-->
