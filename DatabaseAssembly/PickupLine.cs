@@ -14,5 +14,15 @@ namespace DatabaseAssembly
         public string Text { get; set; }
 
         public bool IsFavourited { get; set; }
+
+        public PickupLineType PickupLineType { get; set; }
+    }
+
+    public enum PickupLineType
+    {
+        Street, 
+        Club,
+        Trans,
+        Gym,
     }
 }
