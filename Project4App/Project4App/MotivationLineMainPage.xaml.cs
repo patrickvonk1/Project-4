@@ -40,7 +40,14 @@ namespace Project4App
 
         private async Task TappedImage()
         {
-            MotivationLine filteredMotivationLine = await App.Database.GetMotivationLineByFilter(this.FindByName<Picker>("MotivationLineTypePicker").SelectedItem as string);
+            Picker picker = this.FindByName<Picker>("MotivationLineTypePicker");
+            string pickupLineType = "";
+
+            if (picker != null && picker.SelectedItem != null)
+            {
+                pickupLineType = (string)picker.SelectedItem;
+            }
+
             MotivationLine randomMotivationLine = await App.Database.GetRandomMotivationLineAsync();
 
 

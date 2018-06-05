@@ -29,6 +29,7 @@
                 <x:String>"School"</x:String>
                 <x:String>"Gym"</x:String>
             </Picker.Items>
+            <Picker.SelectedIndex>0</Picker.SelectedIndex>
         </Picker>
         <Button Clicked="EditButton_Clicked" Text="Edit" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
         <Button Clicked="FavouriteButton_Clicked" Text="Favourite" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" HorizontalOptions="FillAndExpand"></Button>
