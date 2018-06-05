@@ -110,9 +110,6 @@
     <AndroidAsset Include="Assets\PickupLineFile.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\motivationlineimage.png" />
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +119,7 @@
     <AndroidResource Include="Resources\drawable\pickuplineimage.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splashscreen.png" />
+    <AndroidResource Include="Resources\drawable\splash.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
