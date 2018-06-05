@@ -16,6 +16,8 @@ namespace Project4App
     public partial class FavouriteMainPage : ContentPage
     {
 
+        public ObservableCollection<Grouping<string, FavouriteLine>> Items { get; set; } = new ObservableCollection<Grouping<string, FavouriteLine>>();
+
         public FavouriteMainPage()
         {
             InitializeComponent();
@@ -24,49 +26,59 @@ namespace Project4App
 
         public async Task AddFavouriteLinesToListview()
         {
-            //PickupLine newPickupLine = new PickupLine();
-            //newPickupLine.Text = "Dit is helemaal kut";
-            //newPickupLine.IsFavourited = true;ss
-            //await App.Database.SavePickupLineAsync(newPickupLine);
-
-            List<PickupLine> pickupLines =(await App.Database.GetPickupLinesAsync()).Where(p => p.IsFavourited == true).ToList();
+            Items.Clear();
+            List<PickupLine> pickupLines = (await App.Database.GetPickupLinesAsync()).Where(p => p.IsFavourited == true).ToList();
             List<MotivationLine> motivationLines = (await App.Database.GetMotivationLinesAsync()).Where(m => m.IsFavourited == true).ToList();
             List<JokeLine> jokeLines = (await App.Database.GetJokeLinesAsync()).Where(j => j.IsFavourited == true).ToList();
             List<FavouriteLine> favouriteLines = new List<FavouriteLine>();
 
-            foreach (var pickupLine in pickupLines)
+            foreach (PickupLine pickupLine in pickupLines)
             {
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = pickupLine.Text;
+                favouriteLine.Heading = "PICK UP LINES";
                 favouriteLine.FavouriteLineType = FavouriteLineType.PickUpLine;
 
                 favouriteLines.Add(favouriteLine);
             }
 
-            foreach (var motivationLine in motivationLines)
+            foreach (MotivationLine motivationLine in motivationLines)
             {
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = motivationLine.Text;
+                favouriteLine.Heading = "MOTIVATIONS";
                 favouriteLine.FavouriteLineType = FavouriteLineType.MotivationLine;
 
                 favouriteLines.Add(favouriteLine);
             }
 
-            foreach (var jokeLine in jokeLines)
+            foreach (JokeLine jokeLine in jokeLines)
             {
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = jokeLine.Text;
+                favouriteLine.Heading = "JOKES";
                 favouriteLine.FavouriteLineType = FavouriteLineType.JokeLine;
 
                 favouriteLines.Add(favouriteLine);
             }
 
-            FavouriteView.ItemsSource = favouriteLines;
+            var sorted = from favouriteLine in favouriteLines
+                         orderby favouriteLine.Heading
+                         group favouriteLine by favouriteLine.Heading into favouriteLineGroup
+                         select new Grouping<string, FavouriteLine>(favouriteLineGroup.Key, favouriteLineGroup);
+
+            
+
+            foreach (var g in sorted)
+                Items.Add(g);
+
+            BindingContext = this;
         }
 
         public class FavouriteLine
         {
             public string Text { get; set; }
+            public string Heading { get; set; }
             public FavouriteLineType FavouriteLineType { get; set; }
         }
 
@@ -77,5 +89,33 @@ namespace Project4App
             JokeLine,
         }
 
+
     }
+
+
+    //public class HeaderCell : ViewCell
+    //{
+    //    public HeaderCell()
+    //    {
+    //        this.Height = 25;
+    //        var title = new Label
+    //        {
+    //            Font = Font.SystemFontOfSize(NamedSize.Small, FontAttributes.Bold),
+    //            TextColor = Color.White,
+    //            VerticalOptions = LayoutOptions.Center
+    //        };
+
+    //        title.SetBinding(Label.TextProperty, "Key");
+
+    //        View = new StackLayout
+    //        {
+    //            HorizontalOptions = LayoutOptions.FillAndExpand,
+    //            HeightRequest = 25,
+    //            BackgroundColor = Color.FromRgb(52, 152, 218),
+    //            Padding = 5,
+    //            Orientation = StackOrientation.Horizontal,
+    //            Children = { title }
+    //        };
+    //    }
+    //}
 }
