@@ -147,6 +147,12 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
                     filteredMotivationLines.Add(motivationLine);
                 }
             }
+
+            if (filteredMotivationLines.Count == 0)
+            {
+                return null;
+            }
+
             return filteredMotivationLines[random.Next(0, filteredMotivationLines.Count)];
         }
 
@@ -232,6 +238,12 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
                     filteredJokeLines.Add(jokeLine);
                 }
             }
+
+            if (filteredJokeLines.Count == 0)
+            {
+                return null;
+            }
+
             return filteredJokeLines[random.Next(0, filteredJokeLines.Count)];
         }
 

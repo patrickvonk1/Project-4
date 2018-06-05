@@ -14,6 +14,8 @@ namespace Project4App
 
         public async void PickupLinesFromFile(List<string> pickupLines)
         {
+            return;
+
             foreach (var line in pickupLines)
             {
                 string[] splittedLine = line.Split('*');
