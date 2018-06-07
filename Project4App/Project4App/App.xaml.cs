@@ -41,6 +41,37 @@ namespace Project4App
                 }
 
                 await Database.SavePickupLineAsync(newPickupLine);
+
+                MotivationLine newMotivationLine = new MotivationLine();
+                newMotivationLine.Text = text;
+
+                MotivationLineType motivationLineType;
+                if (Enum.TryParse(type, out motivationLineType))
+                {
+                    newMotivationLine.MotivationLineType = motivationLineType;
+                }
+                else
+                {
+                    throw new Exception("A motivationLineType in the textfile is not correct. maybe somewhere its club instead of Club");
+                }
+
+                await Database.SaveMotivationLineAsync(newMotivationLine);
+
+                JokeLine newJokeLine = new JokeLine();
+                newJokeLine.Text = text;
+
+                JokeLineType jokeLineType;
+                if (Enum.TryParse(type, out jokeLineType))
+                {
+                    newJokeLine.JokeLineType = jokeLineType;
+                }
+                else
+                {
+                    throw new Exception("A jokeLineType in the textfile is not correct. maybe somewhere its club instead of Club");
+                }
+
+                await Database.SaveJokeLineAsync(newJokeLine);
+
             }
         }
 
