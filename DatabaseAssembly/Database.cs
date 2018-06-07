@@ -22,6 +22,7 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
             database.CreateTableAsync<PickupLine>().Wait();
             database.CreateTableAsync<MotivationLine>().Wait();
             database.CreateTableAsync<JokeLine>().Wait();
+            database.CreateTableAsync<Preferences>().Wait();
         }
 
         #region PickupLine Methods
@@ -29,6 +30,24 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
         public async Task<List<PickupLine>> GetPickupLinesAsync()
         {
             return await database.Table<PickupLine>().ToListAsync();
+        }
+
+        public async Task<Preferences> GetPreferenceAsync()
+        {
+            Preferences foundPreferences = await database.Table<Preferences>().FirstOrDefaultAsync();
+            return foundPreferences;
+        }
+
+        public async Task SavePreferencesAsync(Preferences newPreferences)
+        {
+            if (newPreferences.ID == 0)//Add
+            {
+                int result = await database.InsertAsync(newPreferences);
+            }
+            else//Update
+            {
+                int result = await database.UpdateAsync(newPreferences);
+            }
         }
 
         public async Task<PickupLine> GetRandomPickupLineAsync()
@@ -228,6 +247,7 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
 
         public async Task<JokeLine> GetJokeLineByFilter(string jokeLineType)
         {
+            //These filters error if the string is not of type ...LineType
             List<JokeLine> allJokeLine = await database.Table<JokeLine>().ToListAsync();
             List<JokeLine> filteredJokeLines = new List<JokeLine>();
 

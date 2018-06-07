@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project4App.PreferencesMainPage">
+
+    <Grid RowSpacing="0" ColumnSpacing="0" Margin="20,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="1" Text="Enable Profanity"></Label>
+        <Switch x:Name="profanitySwitch" Grid.Column="0" Grid.Row="2" HorizontalOptions="StartAndExpand"></Switch>
+
+        <Label Grid.Column="0" Grid.Row="4" Text="Theme"></Label>
+        <Picker x:Name="AppThemePicker" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+            <Picker.Items>
+                <x:String>Dark</x:String>
+                <x:String>Light</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Grid.Column="0" Grid.Row="7" Text="Attracted Gender"></Label>
+        <Picker x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2">
+            <Picker.Items>
+                <x:String>Female</x:String>
+                <x:String>Male</x:String>
+                <x:String>Both</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Button x:Name="SavePreferencesButton" Clicked="SavePreferencesButton_Clicked" Text="Save" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2"></Button>
+    </Grid>
+</ContentPage>

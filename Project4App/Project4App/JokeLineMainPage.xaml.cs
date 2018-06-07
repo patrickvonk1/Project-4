@@ -41,13 +41,18 @@ namespace Project4App
 
         private async Task TappedImage()
         {
-            JokeLine filteredJokeLine = await App.Database.GetJokeLineByFilter(this.FindByName<Picker>("JokeLineTypePicker").SelectedItem as string);
-            JokeLine randomJokeLine = await App.Database.GetRandomJokeLineAsync();
-
-            if (randomJokeLine != null)
+            string jokeLineType = "";
+            if (JokeLineTypePicker != null && JokeLineTypePicker.SelectedItem != null)
             {
-                LblCurrentJoke.Text = "Random Joke: " + randomJokeLine.Text;
-                currentJokeLine = randomJokeLine;
+                jokeLineType = (string)JokeLineTypePicker.SelectedItem;
+            }
+
+            JokeLine filteredJokeLine = await App.Database.GetJokeLineByFilter(jokeLineType);
+
+            if (filteredJokeLine != null)
+            {
+                LblCurrentJoke.Text = "Random Joke: " + filteredJokeLine.Text;
+                currentJokeLine = filteredJokeLine;
             }
             else
             {

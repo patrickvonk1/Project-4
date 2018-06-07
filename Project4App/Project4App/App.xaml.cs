@@ -10,6 +10,7 @@ namespace Project4App
 {
 	public partial class App : Application
 	{
+        public static Preferences Preferences { get; set; }
         public static List<string> pickupLines = new List<string>();
 
         public async void PickupLinesFromFile(List<string> pickupLines)
@@ -62,9 +63,14 @@ namespace Project4App
             InitializeComponent();
             MainTabbedPage mainTabbedPage = new MainTabbedPage();
 
+
+            //Preferences page
+            NavigationPage preferencesNavPage = new NavigationPage(new PreferencesMainPage());
+            preferencesNavPage.Title = "Preferences";
+
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
-            pickupLineNavPage.Title = "Pick up Lines";
+            pickupLineNavPage.Title = "Pick-up Lines";
 
             //MotivationLine Page
             NavigationPage motivationLineNavPage = new NavigationPage(new MotivationLineMainPage());
@@ -78,6 +84,7 @@ namespace Project4App
             NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
             FavouriteNavPage.Title = "Favourites";
 
+            mainTabbedPage.Children.Add(preferencesNavPage);
             mainTabbedPage.Children.Add(pickupLineNavPage);
             mainTabbedPage.Children.Add(motivationLineNavPage);
             mainTabbedPage.Children.Add(jokeLineNavPage);
@@ -86,8 +93,25 @@ namespace Project4App
             MainPage = mainTabbedPage;
 		}
 
-		protected override void OnStart ()
+		protected override async void OnStart ()
 		{
+            Preferences preferences = await Database.GetPreferenceAsync();
+            if (preferences == null)
+            {
+                Preferences newPreferences = new Preferences();
+                newPreferences.AppTheme = AppTheme.Light;
+                newPreferences.AttractedGender = AttractedGender.Both;
+                newPreferences.IsProfanityFilterEnabled = true;
+
+                await Database.SavePreferencesAsync(newPreferences);
+                Preferences = newPreferences;
+            }
+            else
+            {
+                Preferences = preferences;
+            }
+
+
             PickupLinesFromFile(pickupLines);
             // Handle when your app starts
         }
