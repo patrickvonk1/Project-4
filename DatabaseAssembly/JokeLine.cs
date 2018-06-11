@@ -20,8 +20,8 @@ namespace DatabaseAssembly
 
     public enum JokeLineType
     {
-        Dad,
-        Pun,
-        Corny
+        Ouders,
+        Woordgrap,
+        Droog
     }
 }

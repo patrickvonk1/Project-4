@@ -20,9 +20,9 @@ namespace DatabaseAssembly
 
     public enum PickupLineType
     {
-        Street, 
+        Straat, 
         Club,
-        Trans,
-        Gym,
+        OV,
+        Sportschool,
     }
 }

@@ -21,6 +21,6 @@ namespace DatabaseAssembly
     public enum MotivationLineType
     {
         School,
-        Gym
+        Sportschool
     }
 }

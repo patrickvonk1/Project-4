@@ -19,9 +19,9 @@ namespace DatabaseAssembly
 
     public enum AttractedGender
     {
-        Female,
-        Male,
-        Both
+        Man,
+        Vrouw,
+        Beide
     }
 
     public enum AppTheme

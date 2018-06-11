@@ -10,7 +10,7 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Text" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                <Label Text="Motivatie" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
 
@@ -22,8 +22,8 @@
                 <Picker.SelectedIndex>0</Picker.SelectedIndex>
             </Picker>
             
-            <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="Save_Clicked"></Button>
-            <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Cancle_Clicked"></Button>
+            <Button Text="Opslaan" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="Save_Clicked"></Button>
+            <Button Text="Annuleren" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Cancle_Clicked"></Button>
 
         </StackLayout>
     </ContentPage.Content>
