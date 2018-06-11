@@ -14,8 +14,8 @@
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
 
-            <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="Save_Clicked"></Button>
-            <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Cancle_Clicked"></Button>
+            <Button Text="Oplsaan" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="Save_Clicked"></Button>
+            <Button Text="Annuleren" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Cancle_Clicked"></Button>
 
         </StackLayout>
     </ContentPage.Content>
