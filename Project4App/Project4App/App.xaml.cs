@@ -144,7 +144,7 @@ namespace Project4App
 
 
             PickupLinesFromFile(pickupLines);
-            // Handle when your app starts
+            //Handle when your app starts
         }
 
 		protected override void OnSleep ()

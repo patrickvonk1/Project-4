@@ -15,7 +15,9 @@ namespace Project4App.Droid
 {
     [Activity(Label = "Project4App", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+
     {
+
         private void ReadPickupLineFile(List<string> pickupLineList)
         {
             //// Read the contents of our asset
