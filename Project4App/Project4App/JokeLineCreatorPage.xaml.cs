@@ -22,6 +22,8 @@ namespace Project4App
         {
             JokeLine jokeLineItem = (JokeLine)BindingContext;
 
+            jokeLineItem.JokeLineType = (JokeLineType)Enum.Parse(typeof(JokeLineType), (string)JokeLineTypePicker.SelectedItem);
+
             await App.Database.SaveJokeLineAsync(jokeLineItem);
             await Navigation.PopAsync();
         }

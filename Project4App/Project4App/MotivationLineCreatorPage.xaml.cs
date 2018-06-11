@@ -22,6 +22,8 @@ namespace Project4App
         {
             MotivationLine motivationLineItem = (MotivationLine)BindingContext;
 
+            motivationLineItem.MotivationLineType = (MotivationLineType)Enum.Parse(typeof(MotivationLineType), (string)MotivationLineTypePicker.SelectedItem);
+
             await App.Database.SaveMotivationLineAsync(motivationLineItem);
             await Navigation.PopAsync();
         }
