@@ -26,7 +26,6 @@ namespace Project4App
             }
 
             Preferences preferences = new Preferences();
-            preferences.IsProfanityFilterEnabled = profanitySwitch.IsToggled;
 
             if (AppThemePicker.SelectedItem != null)
             {

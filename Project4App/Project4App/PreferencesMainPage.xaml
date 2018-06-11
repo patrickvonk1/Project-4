@@ -24,10 +24,9 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" Grid.Row="1" Text="Enable Profanity"></Label>
-        <Switch x:Name="profanitySwitch" Grid.Column="0" Grid.Row="2" HorizontalOptions="StartAndExpand"></Switch>
 
         <Label Grid.Column="0" Grid.Row="4" Text="Theme"></Label>
-        <Picker x:Name="AppThemePicker" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+        <Picker SelectedIndex="0" x:Name="AppThemePicker" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
             <Picker.Items>
                 <x:String>Dark</x:String>
                 <x:String>Light</x:String>
@@ -35,7 +34,7 @@
         </Picker>
 
         <Label Grid.Column="0" Grid.Row="7" Text="Attracted Gender"></Label>
-        <Picker x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2">
+        <Picker SelectedIndex="0" x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2">
             <Picker.Items>
                 <x:String>Female</x:String>
                 <x:String>Male</x:String>

@@ -14,6 +14,15 @@
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
 
+            <Picker TextColor="Black" x:Name="JokeLineTypePicker" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand">
+                <Picker.Items>
+                    <x:String>Dad</x:String>
+                    <x:String>Pun</x:String>
+                    <x:String>Corny</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+
             <Button Text="Save" Image="JokeLinePageButton.png" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="Save_Clicked"></Button>
             <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Cancle_Clicked"></Button>
 

@@ -22,6 +22,8 @@ namespace Project4App
         {
             PickupLine pickupLineItem = (PickupLine)BindingContext;
 
+            pickupLineItem.PickupLineType = (PickupLineType)Enum.Parse(typeof(PickupLineType), (string)PickUpLineTypePicker.SelectedItem);
+
             await App.Database.SavePickupLineAsync(pickupLineItem);
             await Navigation.PopAsync();
         }

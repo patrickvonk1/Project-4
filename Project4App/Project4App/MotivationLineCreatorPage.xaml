@@ -14,6 +14,14 @@
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
 
+            <Picker TextColor="Black" x:Name="MotivationLineTypePicker" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <Picker.Items>
+                    <x:String>School</x:String>
+                    <x:String>Gym</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+            
             <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="Save_Clicked"></Button>
             <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Cancle_Clicked"></Button>
 
