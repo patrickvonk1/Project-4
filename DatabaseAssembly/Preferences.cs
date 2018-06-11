@@ -11,22 +11,20 @@ namespace DatabaseAssembly
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
-        public bool IsProfanityFilterEnabled { get;set; }
-
         public AttractedGender AttractedGender { get; set; }
         public AppTheme AppTheme { get; set; }
     }
 
     public enum AttractedGender
     {
-        Female,
-        Male,
-        Both
+        Man,
+        Vrouw,
+        Beide
     }
 
     public enum AppTheme
     {
-        Dark,
-        Light
+        Donker,
+        Licht
     }
 }
