@@ -10,17 +10,17 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Text" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                <Label Text="Openingszin" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
 
             <Label Text=""></Label>
                 <Picker TextColor="Black" x:Name="PickUpLineTypePicker" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
                 <Picker.Items>
-                    <x:String>Street</x:String>
+                    <x:String>Straat</x:String>
                     <x:String>Club</x:String>
                     <x:String>School</x:String>
-                    <x:String>Gym</x:String>
+                    <x:String>Sportschool</x:String>
                 </Picker.Items>
                 <Picker.SelectedIndex>0</Picker.SelectedIndex>
             </Picker>

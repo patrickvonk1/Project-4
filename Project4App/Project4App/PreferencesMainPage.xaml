@@ -28,20 +28,20 @@
         <Label Grid.Column="0" Grid.Row="4" Text="Theme"></Label>
         <Picker SelectedIndex="0" x:Name="AppThemePicker" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
             <Picker.Items>
-                <x:String>Dark</x:String>
-                <x:String>Light</x:String>
+                <x:String>Donker</x:String>
+                <x:String>Licht</x:String>
             </Picker.Items>
         </Picker>
 
-        <Label Grid.Column="0" Grid.Row="7" Text="Attracted Gender"></Label>
+        <Label Grid.Column="0" Grid.Row="7" Text="Voorkeur"></Label>
         <Picker SelectedIndex="0" x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2">
             <Picker.Items>
-                <x:String>Female</x:String>
-                <x:String>Male</x:String>
-                <x:String>Both</x:String>
+                <x:String>Vrouw</x:String>
+                <x:String>Man</x:String>
+                <x:String>Beide</x:String>
             </Picker.Items>
         </Picker>
 
-        <Button x:Name="SavePreferencesButton" Clicked="SavePreferencesButton_Clicked" Text="Save" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2"></Button>
+        <Button x:Name="SavePreferencesButton" Clicked="SavePreferencesButton_Clicked" Text="Opslaan" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2"></Button>
     </Grid>
 </ContentPage>
