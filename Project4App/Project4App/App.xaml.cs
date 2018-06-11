@@ -131,7 +131,7 @@ namespace Project4App
             {
                 Preferences newPreferences = new Preferences();
                 newPreferences.AppTheme = AppTheme.Light;
-                newPreferences.AttractedGender = AttractedGender.Both;
+                newPreferences.AttractedGender = AttractedGender.Beide;
                 newPreferences.IsProfanityFilterEnabled = true;
 
                 await Database.SavePreferencesAsync(newPreferences);

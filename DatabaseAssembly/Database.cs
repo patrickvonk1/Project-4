@@ -175,7 +175,7 @@ namespace DatabaseAssembly//ToDo: Favourite page, User Inlog + Register pagina, 
             return filteredMotivationLines[random.Next(0, filteredMotivationLines.Count)];
         }
 
-            public async Task<MotivationLine> GetMotivationLineAsync(int id)
+        public async Task<MotivationLine> GetMotivationLineAsync(int id)
         {
             return await database.Table<MotivationLine>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
