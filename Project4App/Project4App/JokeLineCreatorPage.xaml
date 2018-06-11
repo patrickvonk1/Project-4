@@ -13,7 +13,7 @@
                 <Label Text="Text" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
-
+            
             <Picker TextColor="Black" x:Name="JokeLineTypePicker" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand">
                 <Picker.Items>
                     <x:String>Dad</x:String>
