@@ -10,6 +10,9 @@ using Android.Content.Res;
 using System.IO;
 using Project4App;
 using System.Collections.Generic;
+using Android.Content;
+using Xamarin.Forms.Platform.Android;
+using Android.Graphics;
 
 namespace Project4App.Droid
 {
@@ -17,7 +20,6 @@ namespace Project4App.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 
     {
-
         private void ReadPickupLineFile(List<string> pickupLineList)
         {
             // Read the contents of our asset
@@ -88,6 +90,19 @@ namespace Project4App.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+        }
+
+        public static Context context;
+        protected override void OnResume()
+        {
+            context = this;
+            base.OnResume();
+        }
+
+        public static void ChangeStatusBarColor(Color color)
+        {
+            FormsAppCompatActivity c = MainActivity.context as FormsAppCompatActivity;
+            c.SetStatusBarColor(color);
         }
     }
 }

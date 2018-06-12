@@ -39,5 +39,26 @@ namespace Project4App
 
             await App.Database.SavePreferencesAsync(preferences);
         }
+
+        private void AppThemePicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AppTheme appTheme;
+            if (Enum.TryParse((string)AppThemePicker.SelectedItem, out appTheme))
+            {
+                switch (appTheme)
+                {
+                    case AppTheme.Donker:                    
+                        App.Current.Resources["backgroundColor"] = Color.Black;
+                        App.Current.Resources["lineTextColor"] = Color.Black;
+                        break;
+                    case AppTheme.Licht:
+                        App.Current.Resources["backgroundColor"] = Color.White;
+                        App.Current.Resources["lineTextColor"] = Color.Black;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

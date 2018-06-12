@@ -151,6 +151,7 @@ namespace Project4App
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
             pickupLineNavPage.Title = "Openingszinnen";
+            pickupLineNavPage.BarBackgroundColor = Color.Pink;
 
             //MotivationLine Page
             NavigationPage motivationLineNavPage = new NavigationPage(new MotivationLineMainPage());
@@ -199,12 +200,7 @@ namespace Project4App
 
 		protected override void OnSleep ()
 		{
-			// Handle when your app sleeps
-		}
-
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
+            // Handle when your app sleeps
+        }
 	}
 }
