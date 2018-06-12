@@ -11,21 +11,18 @@ namespace Project4App
 	public partial class App : Application
 	{
         public static Preferences Preferences { get; set; }
+
         public static List<string> pickupLines = new List<string>();
+        public static List<string> motivationLines = new List<string>();
+        public static List<string> jokeLines = new List<string>();
 
         public async void PickupLinesFromFile(List<string> pickupLines)
         {
-            return;
-
             foreach (var line in pickupLines)
             {
                 string[] splittedLine = line.Split('*');
                 string text = splittedLine[0];
                 string type = splittedLine[1];
-
-                ////Converting string to int
-                //string numberString = "1";
-                //int numberInt = int.Parse(numberString);//Gebruik parse (type wat het moet worden) (variableName) = (type wat het moet worden).parse(value)
 
                 PickupLine newPickupLine = new PickupLine();
                 newPickupLine.Text = text;
@@ -97,23 +94,23 @@ namespace Project4App
 
             //Preferences page
             NavigationPage preferencesNavPage = new NavigationPage(new PreferencesMainPage());
-            preferencesNavPage.Title = "Preferences";
+            preferencesNavPage.Title = "Instellingen";
 
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
-            pickupLineNavPage.Title = "Pick-up Lines";
+            pickupLineNavPage.Title = "Openingszinnen";
 
             //MotivationLine Page
             NavigationPage motivationLineNavPage = new NavigationPage(new MotivationLineMainPage());
-            motivationLineNavPage.Title = "Motivations";
+            motivationLineNavPage.Title = "Motivatie";
 
             // JokeLine Page
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());
-            jokeLineNavPage.Title = "Jokes";
+            jokeLineNavPage.Title = "Grapjes";
 
             // Favourite Page
             NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
-            FavouriteNavPage.Title = "Favourites";
+            FavouriteNavPage.Title = "Favorieten";
 
             mainTabbedPage.Children.Add(preferencesNavPage);
             mainTabbedPage.Children.Add(pickupLineNavPage);
@@ -130,9 +127,8 @@ namespace Project4App
             if (preferences == null)
             {
                 Preferences newPreferences = new Preferences();
-                newPreferences.AppTheme = AppTheme.Light;
+                newPreferences.AppTheme = AppTheme.Licht;
                 newPreferences.AttractedGender = AttractedGender.Beide;
-                newPreferences.IsProfanityFilterEnabled = true;
 
                 await Database.SavePreferencesAsync(newPreferences);
                 Preferences = newPreferences;

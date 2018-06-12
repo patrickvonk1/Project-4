@@ -23,9 +23,9 @@
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="1" Text="Enable Profanity"></Label>
+        <Label Grid.Column="0" Grid.Row="1" Text="Instellingen"></Label>
 
-        <Label Grid.Column="0" Grid.Row="4" Text="Theme"></Label>
+        <Label Grid.Column="0" Grid.Row="4" Text="Thema"></Label>
         <Picker SelectedIndex="0" x:Name="AppThemePicker" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
             <Picker.Items>
                 <x:String>Donker</x:String>

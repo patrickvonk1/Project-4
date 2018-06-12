@@ -36,7 +36,7 @@ namespace Project4App
             {
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = pickupLine.Text;
-                favouriteLine.Heading = "PICK UP LINES";
+                favouriteLine.Heading = "OPENINGSZINNEN";
                 favouriteLine.FavouriteLineType = FavouriteLineType.PickUpLine;
 
                 favouriteLines.Add(favouriteLine);
@@ -46,7 +46,7 @@ namespace Project4App
             {
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = motivationLine.Text;
-                favouriteLine.Heading = "MOTIVATIONS";
+                favouriteLine.Heading = "MOTIVATIE";
                 favouriteLine.FavouriteLineType = FavouriteLineType.MotivationLine;
 
                 favouriteLines.Add(favouriteLine);
@@ -56,7 +56,7 @@ namespace Project4App
             {
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = jokeLine.Text;
-                favouriteLine.Heading = "JOKES";
+                favouriteLine.Heading = "GRAPPEN";
                 favouriteLine.FavouriteLineType = FavouriteLineType.JokeLine;
 
                 favouriteLines.Add(favouriteLine);
