@@ -16,6 +16,8 @@ namespace DatabaseAssembly
         public bool IsFavourited { get; set; }
 
         public MotivationLineType MotivationLineType { get; set; }
+
+        public AttractedGender AttractedGender { get; set; }
     }
 
     public enum MotivationLineType

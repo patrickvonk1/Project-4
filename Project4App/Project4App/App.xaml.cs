@@ -23,6 +23,7 @@ namespace Project4App
                 string[] splittedLine = line.Split('*');
                 string text = splittedLine[0];
                 string type = splittedLine[1];
+                string gender = splittedLine[2];
 
                 PickupLine newPickupLine = new PickupLine();
                 newPickupLine.Text = text;
@@ -37,7 +38,28 @@ namespace Project4App
                     throw new Exception("A pickupLineType in the textfile is not correct. maybe somewhere its club instead of Club");
                 }
 
+                AttractedGender pickupLineGender;
+                if (Enum.TryParse(gender, out pickupLineGender))
+                {
+                    newPickupLine.AttractedGender = pickupLineGender;
+                }
+                else
+                {
+                    throw new Exception("A pickupLineGender in the textfile is not correct. maybe somewhere its club instead of Club");
+                }
+
                 await Database.SavePickupLineAsync(newPickupLine);
+            }
+        }
+
+        public async void motivationLinesFromFile(List<string> motivationLines)
+        {
+            foreach (var line in motivationLines)
+            {
+                string[] splittedLine = line.Split('*');
+                string text = splittedLine[0];
+                string type = splittedLine[1];
+                string gender = splittedLine[2];
 
                 MotivationLine newMotivationLine = new MotivationLine();
                 newMotivationLine.Text = text;
@@ -52,7 +74,28 @@ namespace Project4App
                     throw new Exception("A motivationLineType in the textfile is not correct. maybe somewhere its club instead of Club");
                 }
 
+                AttractedGender motivationLineGender;
+                if (Enum.TryParse(gender, out motivationLineGender))
+                {
+                    newMotivationLine.AttractedGender = motivationLineGender;
+                }
+                else
+                {
+                    throw new Exception("A motivationLineGender in the textfile is not correct. maybe somewhere its club instead of Club");
+                }
+
                 await Database.SaveMotivationLineAsync(newMotivationLine);
+            }
+        }
+
+        public async void jokeLinesFromFile(List<string> jokeLines)
+        {
+            foreach (var line in jokeLines)
+            {
+                string[] splittedLine = line.Split('*');
+                string text = splittedLine[0];
+                string type = splittedLine[1];
+                string gender = splittedLine[2];
 
                 JokeLine newJokeLine = new JokeLine();
                 newJokeLine.Text = text;
@@ -67,8 +110,17 @@ namespace Project4App
                     throw new Exception("A jokeLineType in the textfile is not correct. maybe somewhere its club instead of Club");
                 }
 
-                await Database.SaveJokeLineAsync(newJokeLine);
+                AttractedGender jokeLineGender;
+                if (Enum.TryParse(gender, out jokeLineGender))
+                {
+                    newJokeLine.AttractedGender = jokeLineGender;
+                }
+                else
+                {
+                    throw new Exception("A jokeLineGender in the textfile is not correct. maybe somewhere its club instead of Club");
+                }
 
+                await Database.SaveJokeLineAsync(newJokeLine);
             }
         }
 
@@ -138,8 +190,10 @@ namespace Project4App
                 Preferences = preferences;
             }
 
-
+            return;// wil je shit in de database haal deze return weg, zet je app aan, daarna zet de return precies hier terug boios
             PickupLinesFromFile(pickupLines);
+            motivationLinesFromFile(motivationLines);
+            jokeLinesFromFile(jokeLines);
             //Handle when your app starts
         }
 
