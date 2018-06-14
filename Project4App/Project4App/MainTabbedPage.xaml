@@ -4,7 +4,8 @@
              x:Class="Project4App.MainTabbedPage"
              xmlns:local="clr-namespace:Project4App"
             CurrentPageChanged="TabbedPage_CurrentPageChanged"
-            xmlns:tabTextAppearance="@style/MyTabTextStyle" BarBackgroundColor="{DynamicResource backgroundColor}" >
+            BarBackgroundColor="{DynamicResource backgroundColor}" 
+            Title="{DynamicResource title}">
     
     <!--All tab pages-->
     <!--<local:PickupLineMainPage/>-->

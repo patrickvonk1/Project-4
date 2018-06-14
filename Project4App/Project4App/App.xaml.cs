@@ -151,15 +151,20 @@ namespace Project4App
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
             pickupLineNavPage.Title = "Openingszinnen";
-            pickupLineNavPage.BarBackgroundColor = Color.Pink;
+            pickupLineNavPage.BarBackgroundColor = Color.FromHex("#96133a");
+            pickupLineNavPage.BackgroundColor = Color.FromHex("#96133a");
 
             //MotivationLine Page
             NavigationPage motivationLineNavPage = new NavigationPage(new MotivationLineMainPage());
             motivationLineNavPage.Title = "Motivatie";
+            motivationLineNavPage.BarBackgroundColor = Color.FromHex("#094f0a");
+            motivationLineNavPage.BackgroundColor = Color.FromHex("#094f0a");
 
             // JokeLine Page
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());
             jokeLineNavPage.Title = "Grapjes";
+            jokeLineNavPage.BarBackgroundColor = Color.FromHex("#c6830f");
+            jokeLineNavPage.BackgroundColor = Color.FromHex("#c6830f");
 
             // Favourite Page
             NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
