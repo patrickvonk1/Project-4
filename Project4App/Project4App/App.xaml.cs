@@ -146,7 +146,7 @@ namespace Project4App
 
             //Preferences page
             NavigationPage preferencesNavPage = new NavigationPage(new PreferencesMainPage());
-            preferencesNavPage.Title = "Instellingen";
+            preferencesNavPage.Icon = "settingsicon.png";
 
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
