@@ -19,10 +19,13 @@ namespace Project4App
 
         private async void TabbedPage_CurrentPageChanged(object sender, EventArgs e)
         {
-            if (CurrentPage.Title == "Favorieten")
+            if (CurrentPage.Icon != null)
             {
-                FavouriteMainPage favouriteMainPage = (FavouriteMainPage)(((NavigationPage)CurrentPage).CurrentPage);
-                await favouriteMainPage.AddFavouriteLinesToListview();
+                if (CurrentPage.Icon == "favouriteicon.png")
+                {
+                    FavouriteMainPage favouriteMainPage = (FavouriteMainPage)(((NavigationPage)CurrentPage).CurrentPage);
+                    await favouriteMainPage.AddFavouriteLinesToListview();
+                }
             }
         }
     }
