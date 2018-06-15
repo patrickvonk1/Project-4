@@ -72,6 +72,7 @@ namespace Project4App
             foreach (var g in sorted)
                 Items.Add(g);
 
+            FavouriteView.HasUnevenRows = true;
             BindingContext = this;
         }
 

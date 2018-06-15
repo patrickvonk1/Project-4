@@ -163,8 +163,8 @@ namespace Project4App
             // JokeLine Page
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());
             jokeLineNavPage.Icon = "jokeicon.png";
-            jokeLineNavPage.BarBackgroundColor = Color.FromHex("#c6830f");
-            jokeLineNavPage.BackgroundColor = Color.FromHex("#c6830f");
+            jokeLineNavPage.BarBackgroundColor = Color.FromHex("#c6a70f");
+            jokeLineNavPage.BackgroundColor = Color.FromHex("#c6a70f");
 
             // Favourite Page
             NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());

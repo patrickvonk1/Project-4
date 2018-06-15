@@ -25,18 +25,18 @@
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="1" Text="Instellingen"></Label>
+        <Label Grid.Column="0" Grid.Row="1" Text="Instellingen" TextColor="{DynamicResource lineTextColor}"></Label>
 
-        <Label Grid.Column="0" Grid.Row="4" Text="Thema"></Label>
-        <Picker SelectedIndex="0" x:Name="AppThemePicker" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" SelectedIndexChanged="AppThemePicker_SelectedIndexChanged">
+        <Label Grid.Column="0" Grid.Row="4" Text="Thema" TextColor="{DynamicResource lineTextColor}"></Label>
+        <Picker SelectedIndex="0" x:Name="AppThemePicker" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" SelectedIndexChanged="AppThemePicker_SelectedIndexChanged" TextColor="{DynamicResource lineTextColor}">
             <Picker.Items>
                 <x:String>Donker</x:String>
                 <x:String>Licht</x:String>
             </Picker.Items>
         </Picker>
 
-        <Label Grid.Column="0" Grid.Row="7" Text="Voorkeur"></Label>
-        <Picker SelectedIndex="0" x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2">
+        <Label Grid.Column="0" Grid.Row="7" Text="Voorkeur" TextColor="{DynamicResource lineTextColor}"></Label>
+        <Picker SelectedIndex="0" x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" TextColor="{DynamicResource lineTextColor}">
             <Picker.Items>
                 <x:String>Vrouw</x:String>
                 <x:String>Man</x:String>

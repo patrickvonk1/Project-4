@@ -4,12 +4,12 @@
              x:Class="Project4App.FavouriteMainPage"
              Title="Favorieten">
     
-    <ListView x:Name="FavouriteView" GroupDisplayBinding="{Binding Key}" ItemsSource="{Binding Items}" IsGroupingEnabled="True">
+    <ListView x:Name="FavouriteView" GroupDisplayBinding="{Binding Key}" ItemsSource="{Binding Items}" IsGroupingEnabled="True" BackgroundColor="{DynamicResource backgroundColor}">
         <ListView.GroupHeaderTemplate>
             <DataTemplate>
-                <ViewCell Height="25">
+                <ViewCell Height="50">
                     <StackLayout>
-                        <Label Text="{Binding Key}" VerticalOptions="CenterAndExpand" FontSize="Medium" FontAttributes="Bold"></Label>
+                        <Label Text="{Binding Key}" TextColor="{DynamicResource lineTextColor}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"></Label>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
@@ -17,7 +17,9 @@
         </ListView.GroupHeaderTemplate>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Text}"></TextCell>
+                <ViewCell Height="40">
+                    <Label VerticalOptions="Center" Text="{Binding Text}" TextColor="{DynamicResource lineTextColor}" FontSize="Medium" LineBreakMode="WordWrap"/>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

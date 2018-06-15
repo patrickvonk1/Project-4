@@ -48,12 +48,14 @@ namespace Project4App
                 switch (appTheme)
                 {
                     case AppTheme.Donker:                    
-                        App.Current.Resources["backgroundColor"] = new Color(0.61960784313, 0.00392156862, 0.35294117647);
-                        App.Current.Resources["lineTextColor"] = new Color(158, 1, 90);
+                        App.Current.Resources["backgroundColor"] = Color.FromHex("#212121");
+                        App.Current.Resources["lineTextColor"] = Color.White;
+                        App.Current.Resources["tabBarColor"] = Color.FromHex("#464448");
                         break;
                     case AppTheme.Licht:
-                        App.Current.Resources["backgroundColor"] = Color.White;
+                        App.Current.Resources["backgroundColor"] = Color.FromHex("#B2DFDB");
                         App.Current.Resources["lineTextColor"] = Color.Black;
+                        App.Current.Resources["tabBarColor"] = Color.FromHex("#E0F2F1");
                         break;
                     default:
                         break;
