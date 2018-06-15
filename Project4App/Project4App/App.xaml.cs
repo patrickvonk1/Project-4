@@ -146,29 +146,29 @@ namespace Project4App
 
             //Preferences page
             NavigationPage preferencesNavPage = new NavigationPage(new PreferencesMainPage());
-            preferencesNavPage.Title = "Instellingen";
+            preferencesNavPage.Icon = "settingsicon.png";
 
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
-            pickupLineNavPage.Title = "Openingszinnen";
+            pickupLineNavPage.Icon = "pickupicon.png";
             pickupLineNavPage.BarBackgroundColor = Color.FromHex("#96133a");
             pickupLineNavPage.BackgroundColor = Color.FromHex("#96133a");
 
             //MotivationLine Page
             NavigationPage motivationLineNavPage = new NavigationPage(new MotivationLineMainPage());
-            motivationLineNavPage.Title = "Motivatie";
+            motivationLineNavPage.Icon = "motivationicon.png";
             motivationLineNavPage.BarBackgroundColor = Color.FromHex("#094f0a");
             motivationLineNavPage.BackgroundColor = Color.FromHex("#094f0a");
 
             // JokeLine Page
             NavigationPage jokeLineNavPage = new NavigationPage(new JokeLineMainPage());
-            jokeLineNavPage.Title = "Grapjes";
+            jokeLineNavPage.Icon = "jokeicon.png";
             jokeLineNavPage.BarBackgroundColor = Color.FromHex("#c6830f");
             jokeLineNavPage.BackgroundColor = Color.FromHex("#c6830f");
 
             // Favourite Page
             NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
-            FavouriteNavPage.Title = "Favorieten";
+            FavouriteNavPage.Icon = "favouriteicon.png";
 
             mainTabbedPage.Children.Add(preferencesNavPage);
             mainTabbedPage.Children.Add(pickupLineNavPage);

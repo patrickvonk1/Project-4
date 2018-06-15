@@ -20,13 +20,20 @@ namespace Project4App
             InitializeComponent ();
 
             ToolbarItem toolbarItem = new ToolbarItem() { Text = "+" };
+            ToolbarItem toolbarItem2 = new ToolbarItem() { Text = "?" };
 
             toolbarItem.Clicked += async (sender, e) =>
             {
                 await Navigation.PushAsync(new PickupLineCreatorPage() { BindingContext = new PickupLine() });
             };
 
+            toolbarItem2.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new HelpPage() {});
+            };
+
             ToolbarItems.Add(toolbarItem);
+            ToolbarItems.Add(toolbarItem2);
 
             var profileTapRecognizer = new TapGestureRecognizer
             {
