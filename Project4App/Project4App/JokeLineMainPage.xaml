@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project4App.JokeLineMainPage">
+             x:Class="Project4App.JokeLineMainPage"
+             Title="Grapjes">
 
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.ColumnDefinitions>
@@ -16,13 +17,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <BoxView Color="DarkGreen" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <BoxView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
 
         </BoxView>
 
 
         <Image x:Name="image" Aspect="AspectFill" Source="jokelineimage.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2"></Image>
-        <Label FontSize="Medium" Text="Druk op de Smiley!" x:Name="LblCurrentJoke" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" BackgroundColor="LightGreen" VerticalTextAlignment="Center" TextColor="White"></Label>
+        <Label FontSize="Medium" Text="Druk op de Smiley!" x:Name="LblCurrentJoke" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"></Label>
 
         <Picker x:Name="JokeLineTypePicker" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="2" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
             <Picker.Items>

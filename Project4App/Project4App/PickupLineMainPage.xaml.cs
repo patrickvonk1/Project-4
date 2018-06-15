@@ -54,12 +54,12 @@ namespace Project4App
 
             if (filteredPickupLine != null)
             {
-                LblCurrentPickupLine.Text = "Random PickupLine: " + filteredPickupLine.Text;
+                LblCurrentPickupLine.Text = filteredPickupLine.Text;
                 currentPickupLine = filteredPickupLine;
             }
             else
             {
-                LblCurrentPickupLine.Text = "There are no pickuplines available in the database!";
+                LblCurrentPickupLine.Text = "Er bestaan geen openingszinnen in de database!";
             }
         }
         

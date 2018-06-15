@@ -13,8 +13,9 @@
                 <Label Text="Grap" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
-            
-            <Picker TextColor="Black" x:Name="JokeLineTypePicker" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand">
+
+            <Label Text="Categorie"></Label>
+            <Picker TextColor="Black" x:Name="JokeLineTypePicker" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
                 <Picker.Items>
                     <x:String>Ouders</x:String>
                     <x:String>Woordgrap</x:String>

@@ -19,7 +19,7 @@ namespace Project4App
 
         private async void TabbedPage_CurrentPageChanged(object sender, EventArgs e)
         {
-            if (CurrentPage.Title == "Favourites")
+            if (CurrentPage.Title == "Favorieten")
             {
                 FavouriteMainPage favouriteMainPage = (FavouriteMainPage)(((NavigationPage)CurrentPage).CurrentPage);
                 await favouriteMainPage.AddFavouriteLinesToListview();

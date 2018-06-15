@@ -51,12 +51,12 @@ namespace Project4App
 
             if (filteredJokeLine != null)
             {
-                LblCurrentJoke.Text = "Random Joke: " + filteredJokeLine.Text;
+                LblCurrentJoke.Text = filteredJokeLine.Text;
                 currentJokeLine = filteredJokeLine;
             }
             else
             {
-                LblCurrentJoke.Text = "There are no jokes available in the database!";
+                LblCurrentJoke.Text = "Er bestaan geen grappen in de database!";
             }
         }
 

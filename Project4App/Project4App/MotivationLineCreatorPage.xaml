@@ -14,7 +14,8 @@
                 <Entry Text="{Binding Text}" Grid.Row="0" Grid.Column="1"></Entry>
             </Grid>
 
-            <Picker TextColor="Black" x:Name="MotivationLineTypePicker" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Categorie"></Label>
+            <Picker TextColor="Black" x:Name="MotivationLineTypePicker" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
                 <Picker.Items>
                     <x:String>School</x:String>
                     <x:String>Gym</x:String>

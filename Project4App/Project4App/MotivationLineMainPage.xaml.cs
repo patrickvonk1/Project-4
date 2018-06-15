@@ -50,12 +50,12 @@ namespace Project4App
 
             if (filteredMotivationLine != null)
             {
-                LblCurrentMotivationLine.Text = "Random MotivationLine: " + filteredMotivationLine.Text;
+                LblCurrentMotivationLine.Text = filteredMotivationLine.Text;
                 currentMotivationLine = filteredMotivationLine;
             }
             else
             {
-                LblCurrentMotivationLine.Text = "There are no motivationlines available in the database!";
+                LblCurrentMotivationLine.Text = "Er bestaan geen motivatie zinnen in de database!";
             }
         }
 
