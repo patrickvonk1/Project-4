@@ -107,6 +107,14 @@ namespace Project4App
                 return;
             }
 
+            var allJokeLines = await App.Database.GetJokeLinesAsync();
+            int favouritedLinesWithSameTextCount = allJokeLines.Count(p => p.Text.ToLower() == currentJokeLine.Text.ToLower() && p.IsFavourited);
+
+            if (favouritedLinesWithSameTextCount > 1)
+            {
+                return;
+            }
+
             currentJokeLine.IsFavourited = true;
             await App.Database.SaveJokeLineAsync(currentJokeLine);
         }

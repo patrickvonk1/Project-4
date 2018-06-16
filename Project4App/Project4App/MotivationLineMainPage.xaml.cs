@@ -106,6 +106,14 @@ namespace Project4App
                 return;
             }
 
+            var allMotivationLines = await App.Database.GetMotivationLinesAsync();
+            int favouritedLinesWithSameTextCount = allMotivationLines.Count(p => p.Text.ToLower() == currentMotivationLine.Text.ToLower() && p.IsFavourited);
+
+            if (favouritedLinesWithSameTextCount > 1)
+            {
+                return;
+            }
+
             currentMotivationLine.IsFavourited = true;
             await App.Database.SaveMotivationLineAsync(currentMotivationLine);
         }

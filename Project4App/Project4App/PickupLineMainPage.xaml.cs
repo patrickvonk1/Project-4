@@ -111,6 +111,14 @@ namespace Project4App
                 return;
             }
 
+            var allPickupLines = await App.Database.GetPickupLinesAsync();
+            int favouritedLinesWithSameTextCount = allPickupLines.Count(p => p.Text.ToLower() == currentPickupLine.Text.ToLower() && p.IsFavourited);
+
+            if (favouritedLinesWithSameTextCount > 1)
+            {
+                return;
+            }
+
             currentPickupLine.IsFavourited = true;
             await App.Database.SavePickupLineAsync(currentPickupLine);
         }

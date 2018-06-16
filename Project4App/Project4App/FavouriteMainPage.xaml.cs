@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,19 +15,83 @@ namespace Project4App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FavouriteMainPage : ContentPage
     {
-
         public ObservableCollection<Grouping<string, FavouriteLine>> Items { get; set; } = new ObservableCollection<Grouping<string, FavouriteLine>>();
+        FavouriteLine selectedLine;
 
         public FavouriteMainPage()
         {
             InitializeComponent();
-            FavouriteView.ItemTapped += (object sender, ItemTappedEventArgs e) => {
+
+            FavouriteView.ItemTapped += async (object sender, ItemTappedEventArgs e) => {
                 if (e.Item == null)
                 {
                     return;
                 }
 
-                ((ListView)sender).SelectedItem = null;
+                bool selectedLineWillbeNull = false;
+
+                if (selectedLine != null && selectedLine == ((FavouriteLine)e.Item))
+                {
+                    bool result = await DisplayAlert("Wil je deze zin verwijderen uit je favorieten?", selectedLine.Text, "Ja", "Nee");
+                    if (result == true)
+                    {
+                        switch (selectedLine.FavouriteLineType)
+                        {
+                            case FavouriteLineType.PickUpLine:
+                                var allPickupLines = await App.Database.GetPickupLinesAsync();
+                                foreach (var pickupLine in allPickupLines)
+                                {
+                                    if (pickupLine.IsFavourited && pickupLine.Text.ToLower() == selectedLine.Text.ToLower())
+                                    {
+                                        pickupLine.IsFavourited = false;
+                                        await App.Database.SavePickupLineAsync(pickupLine);
+                                    }
+                                }
+
+                                await AddFavouriteLinesToListview();
+                                break;
+                            case FavouriteLineType.MotivationLine:
+                                var allMotivationLines = await App.Database.GetMotivationLinesAsync();
+                                foreach (var motivationLine in allMotivationLines)
+                                {
+                                    if (motivationLine.IsFavourited && motivationLine.Text.ToLower() == selectedLine.Text.ToLower())
+                                    {
+                                        motivationLine.IsFavourited = false;
+                                        await App.Database.SaveMotivationLineAsync(motivationLine);
+                                    }
+                                }
+
+                                await AddFavouriteLinesToListview();
+                                break;
+                            case FavouriteLineType.JokeLine:
+                                var allJokeLines = await App.Database.GetJokeLinesAsync();
+                                foreach (var jokeLine in allJokeLines)
+                                {
+                                    if (jokeLine.IsFavourited && jokeLine.Text.ToLower() == selectedLine.Text.ToLower())
+                                    {
+                                        jokeLine.IsFavourited = false;
+                                        await App.Database.SaveJokeLineAsync(jokeLine);
+                                    }
+                                }
+
+                                await AddFavouriteLinesToListview();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        ((ListView)sender).SelectedItem = null;
+                        selectedLine = null;
+                        selectedLineWillbeNull = true;
+                    }
+                }
+
+                if (!selectedLineWillbeNull)
+                {
+                    selectedLine = ((FavouriteLine)e.Item);
+                }
             };
         }
 
