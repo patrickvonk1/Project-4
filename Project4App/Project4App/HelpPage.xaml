@@ -26,12 +26,11 @@
 
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="Gebruiksaanwijzing:" TextColor="White" FontSize="Large"></Label>
-            <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="1. Druk op het plaatje om tekst te genereren!" TextColor="White" FontSize="Medium"></Label>
-            <Label Grid.Column="0" Grid.Row="5" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="2. Druk op het plusje rechtsboven om je eigen teksten toe te voegen!" TextColor="White" FontSize="Medium"></Label>
-            <Label Grid.Column="0" Grid.Row="7" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="3. Gebruik de onderste drie knoppen om teksten te verwijderen, toe te voegen aan je favorieten of om ze te bewerken!" TextColor="White" FontSize="Medium"></Label>
-            <Label Grid.Column="0" Grid.Row="10" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="4. Linksonder van het plaatje kunt u uw teksten filteren aan de hand van waar u bent!" TextColor="White" FontSize="Medium"></Label>
-            
+            <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="Gebruiksaanwijzing:" TextColor="White" FontSize="Large"></Label>
+            <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="1. Druk op het plaatje om tekst te genereren!" TextColor="White" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="5" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="2. Druk op het plusje rechtsboven om je eigen teksten toe te voegen!" TextColor="White" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="7" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="3. Gebruik de onderste drie knoppen om teksten te verwijderen, toe te voegen aan je favorieten of om ze te bewerken!" TextColor="White" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="10" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="4. Linksonder van het plaatje kunt u uw teksten filteren aan de hand van waar u bent!" TextColor="White" FontSize="Default"></Label>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
