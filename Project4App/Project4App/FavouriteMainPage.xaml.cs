@@ -21,6 +21,14 @@ namespace Project4App
         public FavouriteMainPage()
         {
             InitializeComponent();
+            ToolbarItem toolbarItem = new ToolbarItem() { Text = "?" };
+
+            toolbarItem.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new HelpPage() { });
+            };
+
+            ToolbarItems.Add(toolbarItem);
 
             FavouriteView.ItemTapped += async (object sender, ItemTappedEventArgs e) => {
                 if (e.Item == null)

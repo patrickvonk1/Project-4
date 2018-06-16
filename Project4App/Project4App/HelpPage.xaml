@@ -26,12 +26,12 @@
 
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="Gebruiksaanwijzing:" TextColor="White" FontSize="Large"></Label>
-            <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="1. Druk op één van de plaatjes om een willekeurige tekst te genereren." TextColor="White" FontSize="Medium"></Label>
-            <Label Grid.Column="0" Grid.Row="5" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="2. Druk op het plusje rechtsboven om je eigen teksten toe te voegen." TextColor="White" FontSize="Medium"></Label>
-            <Label Grid.Column="0" Grid.Row="7" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="3. Gebruik de onderste drie knoppen om teksten te verwijderen, toe te voegen aan je favorieten of om ze te bewerken." TextColor="White" FontSize="Medium"></Label>
-            <Label Grid.Column="0" Grid.Row="10" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="4. Linksonder van het plaatje kunt je teksten filteren aan de hand van een locatie." TextColor="White" FontSize="Medium"></Label>
-            <Label Grid.Column="0" Grid.Row="13" Grid.RowSpan="4" Grid.ColumnSpan="3" Text="5. Indien je een tekst uit de favorieten wilt verwijderen, tik dan dubbel op een tekst." TextColor="White" FontSize="Medium"></Label>            
+            <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="Gebruiksaanwijzing:" TextColor="White" FontSize="Large"></Label>
+            <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="1. Druk op één van de plaatjes om een willekeurige tekst te genereren." TextColor="White" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="5" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="2. Druk op het plusje rechtsboven om je eigen teksten toe te voegen." TextColor="White" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="7" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="3. Gebruik de onderste drie knoppen om teksten te verwijderen, toe te voegen aan je favorieten of om ze te bewerken." TextColor="White" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="10" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="4. Linksonder van het plaatje kunt je teksten filteren aan de hand van een locatie." TextColor="White" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="13" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="5. Indien je een tekst uit de favorieten wilt verwijderen, tik dan dubbel op een tekst." TextColor="White" FontSize="Default"></Label>            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

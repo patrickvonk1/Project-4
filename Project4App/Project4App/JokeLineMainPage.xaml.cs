@@ -32,7 +32,8 @@ namespace Project4App
                 await Navigation.PushAsync(new HelpPage() { });
             };
 
-            ToolbarItems.Add(toolbarItem);      ToolbarItems.Add(toolbarItem2);
+            ToolbarItems.Add(toolbarItem);
+            ToolbarItems.Add(toolbarItem2);
 
             var profileTapRecognizer = new TapGestureRecognizer
             {

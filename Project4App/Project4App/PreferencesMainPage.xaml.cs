@@ -19,6 +19,16 @@ namespace Project4App
         public PreferencesMainPage ()
 		{
 			InitializeComponent ();
+
+            ToolbarItem toolbarItem = new ToolbarItem() { Text = "?" };
+
+            toolbarItem.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new HelpPage() { });
+            };
+
+            ToolbarItems.Add(toolbarItem);
+
             AppThemePickerVar = AppThemePicker;
             AppGenderPickerVar = AttractedGenderPicker;
         }
