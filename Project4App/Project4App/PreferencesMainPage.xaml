@@ -36,14 +36,12 @@
         </Picker>
 
         <Label Grid.Column="0" Grid.Row="7" Text="Voorkeur" TextColor="{DynamicResource lineTextColor}"></Label>
-        <Picker SelectedIndex="0" x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" TextColor="{DynamicResource lineTextColor}">
+        <Picker SelectedIndexChanged="AttractedGenderPicker_SelectedIndexChanged" SelectedIndex="0" x:Name="AttractedGenderPicker" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" TextColor="{DynamicResource lineTextColor}">
             <Picker.Items>
                 <x:String>Vrouw</x:String>
                 <x:String>Man</x:String>
                 <x:String>Beide</x:String>
             </Picker.Items>
         </Picker>
-
-        <Button x:Name="SavePreferencesButton" Clicked="SavePreferencesButton_Clicked" Text="Opslaan" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2"></Button>
     </Grid>
 </ContentPage>

@@ -13,6 +13,7 @@ namespace Project4App
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PickupLineMainPage : ContentPage
 	{
+        Random random = new Random();
         PickupLine currentPickupLine;
 
         public PickupLineMainPage ()
@@ -59,6 +60,27 @@ namespace Project4App
 
             PickupLine filteredPickupLine = await App.Database.GetPickupLineByFilter(pickupLineType);
 
+            if (currentPickupLine != null && filteredPickupLine != null)
+            {
+                if (filteredPickupLine.Text.ToLower() == currentPickupLine.Text.ToLower())
+                {
+                    var allPickupLines = await App.Database.GetPickupLinesAsync();
+                    var otherPickupLines = allPickupLines.Where(p => p.Text.ToLower() != filteredPickupLine.Text.ToLower()).ToList();
+
+                    if (otherPickupLines != null && otherPickupLines.Count > 0)
+                    {
+                        if (otherPickupLines.Count() == 1)
+                        {
+                            filteredPickupLine = otherPickupLines[0];
+                        }
+                        else
+                        {
+                            filteredPickupLine = otherPickupLines[random.Next(0, otherPickupLines.Count)];
+                        }
+                    }
+                }
+            }
+
             if (filteredPickupLine != null)
             {
                 LblCurrentPickupLine.Text = filteredPickupLine.Text;
@@ -66,7 +88,7 @@ namespace Project4App
             }
             else
             {
-                LblCurrentPickupLine.Text = "Er bestaan geen openingszinnen in de database!";
+                LblCurrentPickupLine.Text = "Geen openingszinnen gevonden!";
             }
         }
         
@@ -78,7 +100,7 @@ namespace Project4App
             }
 
             await Navigation.PushAsync(new PickupLineCreatorPage() { BindingContext = currentPickupLine });
-            LblCurrentPickupLine.Text = "No pickup line yet!";
+            LblCurrentPickupLine.Text = "Druk op het hartje!";
             currentPickupLine = null;
         }
         
@@ -100,7 +122,7 @@ namespace Project4App
                 return;
             }
 
-            LblCurrentPickupLine.Text = "No pickup line yet!";
+            LblCurrentPickupLine.Text = "Druk op het hartje!";
 
             await App.Database.DeletePickupLineAsync(currentPickupLine);
             currentPickupLine = null;

@@ -13,6 +13,7 @@ namespace Project4App
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MotivationLineMainPage : ContentPage
 	{
+        Random random = new Random();
         MotivationLine currentMotivationLine;
         public MotivationLineMainPage ()
 		{
@@ -54,6 +55,27 @@ namespace Project4App
 
             MotivationLine filteredMotivationLine = await App.Database.GetMotivationLineByFilter(motivationLineType);
 
+            if (currentMotivationLine != null && filteredMotivationLine != null)
+            {
+                if (filteredMotivationLine.Text.ToLower() == currentMotivationLine.Text.ToLower())
+                {
+                    var allMotivationLines = await App.Database.GetMotivationLinesAsync();
+                    var otherMotivationLines = allMotivationLines.Where(p => p.Text.ToLower() != filteredMotivationLine.Text.ToLower()).ToList();
+
+                    if (otherMotivationLines != null && otherMotivationLines.Count > 0)
+                    {
+                        if (otherMotivationLines.Count() == 1)
+                        {
+                            filteredMotivationLine = otherMotivationLines[0];
+                        }
+                        else
+                        {
+                            filteredMotivationLine = otherMotivationLines[random.Next(0, otherMotivationLines.Count)];
+                        }
+                    }
+                }
+            }
+
             if (filteredMotivationLine != null)
             {
                 LblCurrentMotivationLine.Text = filteredMotivationLine.Text;
@@ -61,7 +83,7 @@ namespace Project4App
             }
             else
             {
-                LblCurrentMotivationLine.Text = "Er bestaan geen motivatie zinnen in de database!";
+                LblCurrentMotivationLine.Text = "Geen motivatie zinnen gevonden!!";
             }
         }
 
@@ -73,7 +95,7 @@ namespace Project4App
             }
 
             await Navigation.PushAsync(new MotivationLineCreatorPage() { BindingContext = currentMotivationLine });
-            LblCurrentMotivationLine.Text = "No motivation line yet!";
+            LblCurrentMotivationLine.Text = "Druk op het mannetje!";
             currentMotivationLine = null;
         }
 
@@ -95,7 +117,7 @@ namespace Project4App
                 return;
             }
 
-            LblCurrentMotivationLine.Text = "No motivation line yet!";
+            LblCurrentMotivationLine.Text = "Druk op het mannetje!";
 
             await App.Database.DeleteMotivationLineAsync(currentMotivationLine);
             currentMotivationLine = null;

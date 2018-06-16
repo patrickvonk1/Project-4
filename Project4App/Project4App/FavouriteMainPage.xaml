@@ -7,7 +7,7 @@
     <ListView x:Name="FavouriteView" GroupDisplayBinding="{Binding Key}" ItemsSource="{Binding Items}" IsGroupingEnabled="True" BackgroundColor="{DynamicResource backgroundColor}">
         <ListView.GroupHeaderTemplate>
             <DataTemplate>
-                <ViewCell Height="50">
+                <ViewCell Height="30">
                     <StackLayout>
                         <Label Text="{Binding Key}" TextColor="{DynamicResource lineTextColor}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"></Label>
                     </StackLayout>
@@ -17,7 +17,7 @@
         </ListView.GroupHeaderTemplate>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell Height="40">
+                <ViewCell Height="80">
                     <Label VerticalOptions="Center" Text="{Binding Text}" TextColor="{DynamicResource lineTextColor}" FontSize="Medium" LineBreakMode="WordWrap"/>
                 </ViewCell>
             </DataTemplate>

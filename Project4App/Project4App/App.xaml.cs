@@ -143,7 +143,6 @@ namespace Project4App
             InitializeComponent();
             MainTabbedPage mainTabbedPage = new MainTabbedPage();
 
-
             //Preferences page
             NavigationPage preferencesNavPage = new NavigationPage(new PreferencesMainPage());
             preferencesNavPage.Icon = "settingsicon.png";
@@ -195,6 +194,9 @@ namespace Project4App
             {
                 Preferences = preferences;
             }
+
+            PreferencesMainPage.ChangeTheme(Preferences.AppTheme);
+            PreferencesMainPage.ChangeAttractedGender(Preferences.AttractedGender);
 
             return;// wil je shit in de database haal deze return weg, zet je app aan, daarna zet de return precies hier terug boios
             PickupLinesFromFile(pickupLines);

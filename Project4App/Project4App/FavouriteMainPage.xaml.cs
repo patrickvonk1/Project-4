@@ -21,12 +21,20 @@ namespace Project4App
         public FavouriteMainPage()
         {
             InitializeComponent();
-            AddFavouriteLinesToListview();
+            FavouriteView.ItemTapped += (object sender, ItemTappedEventArgs e) => {
+                if (e.Item == null)
+                {
+                    return;
+                }
+
+                ((ListView)sender).SelectedItem = null;
+            };
         }
 
         public async Task AddFavouriteLinesToListview()
         {
             Items.Clear();
+
             List<PickupLine> pickupLines = (await App.Database.GetPickupLinesAsync()).Where(p => p.IsFavourited == true).ToList();
             List<MotivationLine> motivationLines = (await App.Database.GetMotivationLinesAsync()).Where(m => m.IsFavourited == true).ToList();
             List<JokeLine> jokeLines = (await App.Database.GetJokeLinesAsync()).Where(j => j.IsFavourited == true).ToList();
@@ -34,6 +42,13 @@ namespace Project4App
 
             foreach (PickupLine pickupLine in pickupLines)
             {
+                int totalSameLines = favouriteLines.Count(f => f.Text.ToLower() == pickupLine.Text.ToLower());
+
+                if (totalSameLines > 0)
+                {
+                    continue;
+                }
+
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = pickupLine.Text;
                 favouriteLine.Heading = "OPENINGSZINNEN";
@@ -44,6 +59,13 @@ namespace Project4App
 
             foreach (MotivationLine motivationLine in motivationLines)
             {
+                int totalSameLines = favouriteLines.Count(f => f.Text.ToLower() == motivationLine.Text.ToLower());
+
+                if (totalSameLines > 0)
+                {
+                    continue;
+                }
+
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = motivationLine.Text;
                 favouriteLine.Heading = "MOTIVATIE";
@@ -54,6 +76,14 @@ namespace Project4App
 
             foreach (JokeLine jokeLine in jokeLines)
             {
+
+                int totalSameLines = favouriteLines.Count(f => f.Text.ToLower() == jokeLine.Text.ToLower());
+
+                if (totalSameLines > 0)
+                {
+                    continue;
+                }
+
                 FavouriteLine favouriteLine = new FavouriteLine();
                 favouriteLine.Text = jokeLine.Text;
                 favouriteLine.Heading = "GRAPPEN";
@@ -89,7 +119,5 @@ namespace Project4App
             MotivationLine,
             JokeLine,
         }
-
-
     }
 }

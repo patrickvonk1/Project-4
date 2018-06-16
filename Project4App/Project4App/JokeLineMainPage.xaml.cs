@@ -13,6 +13,7 @@ namespace Project4App
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class JokeLineMainPage : ContentPage
 	{
+        Random random = new Random();
         JokeLine currentJokeLine;
         public JokeLineMainPage ()
 		{
@@ -55,6 +56,27 @@ namespace Project4App
 
             JokeLine filteredJokeLine = await App.Database.GetJokeLineByFilter(jokeLineType);
 
+            if (currentJokeLine != null && filteredJokeLine != null)
+            {
+                if (filteredJokeLine.Text.ToLower() == currentJokeLine.Text.ToLower())
+                {
+                    var allJokeLines = await App.Database.GetJokeLinesAsync();
+                    var otherJokeLines = allJokeLines.Where(p => p.Text.ToLower() != filteredJokeLine.Text.ToLower()).ToList();
+
+                    if (otherJokeLines != null && otherJokeLines.Count > 0)
+                    {
+                        if (otherJokeLines.Count() == 1)
+                        {
+                            filteredJokeLine = otherJokeLines[0];
+                        }
+                        else
+                        {
+                            filteredJokeLine = otherJokeLines[random.Next(0, otherJokeLines.Count)];
+                        }
+                    }
+                }
+            }
+
             if (filteredJokeLine != null)
             {
                 LblCurrentJoke.Text = filteredJokeLine.Text;
@@ -62,7 +84,7 @@ namespace Project4App
             }
             else
             {
-                LblCurrentJoke.Text = "Er bestaan geen grappen in de database!";
+                LblCurrentJoke.Text = "Geen grappen gevonden!";
             }
         }
 
@@ -74,7 +96,7 @@ namespace Project4App
             }
 
             await Navigation.PushAsync(new JokeLineCreatorPage() { BindingContext = currentJokeLine });
-            LblCurrentJoke.Text = "No joke yet!";
+            LblCurrentJoke.Text = "Druk op de Smiley!";
             currentJokeLine = null;
         }
 
@@ -96,7 +118,7 @@ namespace Project4App
                 return;
             }
 
-            LblCurrentJoke.Text = "No joke yet!";
+            LblCurrentJoke.Text = "Druk op de Smiley!";
 
             await App.Database.DeleteJokeLineAsync(currentJokeLine);
             currentJokeLine = null;
