@@ -146,7 +146,6 @@ namespace Project4App
             //Preferences page
             NavigationPage preferencesNavPage = new NavigationPage(new PreferencesMainPage());
             preferencesNavPage.Icon = "settingsicon.png";
-            preferencesNavPage.BackgroundColor = Color.FromHex("#96133a");//Deze jasper
 
             //PickupLine page
             NavigationPage pickupLineNavPage = new NavigationPage(new PickupLineMainPage());
@@ -169,7 +168,6 @@ namespace Project4App
             // Favourite Page
             NavigationPage FavouriteNavPage = new NavigationPage(new FavouriteMainPage());
             FavouriteNavPage.Icon = "favouriteicon.png";
-            FavouriteNavPage.BackgroundColor = Color.FromHex("#96133a");//Deze jasper
 
             mainTabbedPage.Children.Add(preferencesNavPage);
             mainTabbedPage.Children.Add(pickupLineNavPage);

@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project4App.HelpPage">
+             x:Class="Project4App.HelpPage"
+             Title="Help"
+             BackgroundColor="{DynamicResource backgroundColor}">
     <ContentPage.Content>
         <Grid RowSpacing="10" ColumnSpacing="0" Margin="20,0,0,0">
             <Grid.ColumnDefinitions>
@@ -26,12 +28,12 @@
 
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="Gebruiksaanwijzing:" TextColor="White" FontSize="Large"></Label>
-            <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="1. Druk op één van de plaatjes om een willekeurige tekst te genereren." TextColor="White" FontSize="Default"></Label>
-            <Label Grid.Column="0" Grid.Row="5" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="2. Druk op het plusje rechtsboven om je eigen teksten toe te voegen." TextColor="White" FontSize="Default"></Label>
-            <Label Grid.Column="0" Grid.Row="7" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="3. Gebruik de onderste drie knoppen om teksten te verwijderen, toe te voegen aan je favorieten of om ze te bewerken." TextColor="White" FontSize="Default"></Label>
-            <Label Grid.Column="0" Grid.Row="10" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="4. Linksonder van het plaatje kunt je teksten filteren aan de hand van een locatie." TextColor="White" FontSize="Default"></Label>
-            <Label Grid.Column="0" Grid.Row="13" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="5. Indien je een tekst uit de favorieten wilt verwijderen, tik dan dubbel op een tekst." TextColor="White" FontSize="Default"></Label>            
+            <Label Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="Gebruiksaanwijzing:" TextColor="{DynamicResource lineTextColor}" FontSize="Large"></Label>
+            <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="1. Druk op één van de plaatjes om een willekeurige tekst te genereren." TextColor="{DynamicResource lineTextColor}" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="5" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="2. Druk op het plusje rechtsboven om je eigen teksten toe te voegen." TextColor="{DynamicResource lineTextColor}" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="7" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="3. Gebruik de onderste drie knoppen om teksten te verwijderen, toe te voegen aan je favorieten of om ze te bewerken." TextColor="{DynamicResource lineTextColor}" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="10" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="4. Linksonder van het plaatje kunt je teksten filteren aan de hand van een locatie." TextColor="{DynamicResource lineTextColor}" FontSize="Default"></Label>
+            <Label Grid.Column="0" Grid.Row="13" Grid.RowSpan="4" Grid.ColumnSpan="4" Text="5. Indien je een tekst uit de favorieten wilt verwijderen, tik dan dubbel op een tekst." TextColor="{DynamicResource lineTextColor}" FontSize="Default"></Label>            
         </Grid>
     </ContentPage.Content>
 </ContentPage>
