@@ -16,3 +16,30 @@ Mag ik je foto, dan weet Sinterklaas precies wat hij me moet geven*Straat*Man
 Mag ik je foto, dan weet Sinterklaas precies wat hij me moet geven*Club*Beide
 Mag ik je foto, dan weet Sinterklaas precies wat hij me moet geven*Club*Vrouw
 Mag ik je foto, dan weet Sinterklaas precies wat hij me moet geven*Club*Man
+Is jouw naam Google? Want je hebt alles wat ik zoek.*Club*Beide
+Is jouw naam Google? Want je hebt alles wat ik zoek.*Club*Man
+Is jouw naam Google? Want je hebt alles wat ik zoek.*Club*Vrouw
+Is jouw naam Google? Want je hebt alles wat ik zoek.*Straat*Beide
+Is jouw naam Google? Want je hebt alles wat ik zoek.*Straat*Man
+Is jouw naam Google? Want je hebt alles wat ik zoek.*Straat*Vrouw
+Wil je met mij update?*Straat*Beide
+Wil je met mij update?*Straat*Man
+Wil je met mij update?*Straat*Vrouw
+Heb je een magneet doorgeslikt? Want je bent aantrekkelijk.*Straat*Beide
+Heb je een magneet doorgeslikt? Want je bent aantrekkelijk.*Straat*Man
+Heb je een magneet doorgeslikt? Want je bent aantrekkelijk.*Straat*Vrouw
+Heb je een magneet doorgeslikt? Want je bent aantrekkelijk.*Club*Beide
+Heb je een magneet doorgeslikt? Want je bent aantrekkelijk.*Club*Man
+Heb je een magneet doorgeslikt? Want je bent aantrekkelijk.*Club*Vrouw
+Ik werd verblind door jouw schoonheid, dus ik heb je naam nodig voor mijn verzekering*Straat*Beide
+Ik werd verblind door jouw schoonheid, dus ik heb je naam nodig voor mijn verzekering*Straat*Man
+Ik werd verblind door jouw schoonheid, dus ik heb je naam nodig voor mijn verzekering*Straat*Vrouw
+Ik sta al een halfuur op de trein te wachten, maar al mijn hele leven op jou*OV*Beide
+Ik sta al een halfuur op de trein te wachten, maar al mijn hele leven op jou*OV*Man
+Ik sta al een halfuur op de trein te wachten, maar al mijn hele leven op jou*OV*Vrouw
+Mag ik je OV-Wipkaart even zien?*OV*Beide
+Mag ik je OV-Wipkaart even zien?*OV*Man
+Mag ik je OV-Wipkaart even zien?*OV*Vrouw
+Ik zit al een tijdje met je te flirten, maar volgens mij heb ik last van een seinstoring*OV*Beide
+Ik zit al een tijdje met je te flirten, maar volgens mij heb ik last van een seinstoring*OV*Man
+Ik zit al een tijdje met je te flirten, maar volgens mij heb ik last van een seinstoring*OV*Vrouw
